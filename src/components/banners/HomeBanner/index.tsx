@@ -14,6 +14,7 @@ const HomeBanner = () => {
       <Image
         src={avatar}
         alt="avatar"
+        priority
         className="h-[200px] w-[200px] object-contain lg:h-[300px] lg:w-[300px]"
       />
       <div className="flex flex-col gap-2">

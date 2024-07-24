@@ -21,6 +21,9 @@ const cursor = () => {
 
   //Set cursor size and default styles
   const initCursor = (cursors: NodeListOf<HTMLDivElement>) => {
+    //Disable cursor on touch devices
+    if ("ontouchstart" in window) return;
+
     cursors.forEach((cursor, index) => {
       const size = `${cursorSize - index * 2}px`;
 
@@ -58,7 +61,7 @@ const cursor = () => {
   // document.addEventListener("touchmove", (e) =>
   //   animateCursor(cursors, e.touches[0].clientX, e.touches[0].clientY),
   // );
-  // document.addEventListener("touchstart", () => showCusor(cursors));
+  //document.addEventListener("touchstart", () => hideCusor(cursors));
   // document.addEventListener("touchend", () => hideCusor(cursors));
 };
 
