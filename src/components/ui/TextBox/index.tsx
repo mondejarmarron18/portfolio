@@ -1,7 +1,9 @@
 "use client";
 
 import cn from "@/utils/cn";
+import mergeRefs from "merge-refs";
 import {
+  forwardRef,
   InputHTMLAttributes,
   LegacyRef,
   TextareaHTMLAttributes,
@@ -17,7 +19,10 @@ type TextBoxPropsType = (TextareaPropsType | InputPropsType) & {
   error?: boolean | string;
 };
 
-const TextBox = ({ error, type, ...props }: TextBoxPropsType) => {
+const TextBox = forwardRef<
+  HTMLInputElement | HTMLTextAreaElement,
+  TextBoxPropsType
+>(({ error, type, ...props }, ref) => {
   const errorRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
   const { styles, attributes } = usePopper(inputRef.current, errorRef.current, {
@@ -31,7 +36,7 @@ const TextBox = ({ error, type, ...props }: TextBoxPropsType) => {
     if (type === "textarea") {
       return (
         <textarea
-          ref={inputRef as LegacyRef<HTMLTextAreaElement>}
+          ref={mergeRefs(inputRef, ref) as LegacyRef<HTMLTextAreaElement>}
           rows={4}
           {...(props as TextareaPropsType)}
           className={cn(
@@ -47,7 +52,7 @@ const TextBox = ({ error, type, ...props }: TextBoxPropsType) => {
 
     return (
       <input
-        ref={inputRef as LegacyRef<HTMLInputElement>}
+        ref={mergeRefs(inputRef, ref) as LegacyRef<HTMLInputElement>}
         {...(props as InputPropsType)}
         className={cn(
           textBoxClassName,
@@ -75,6 +80,8 @@ const TextBox = ({ error, type, ...props }: TextBoxPropsType) => {
       </div>
     </>
   );
-};
+});
+
+TextBox.displayName = "TextBox";
 
 export default TextBox;
