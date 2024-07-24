@@ -1,7 +1,7 @@
+import Icon from "@/components/hoc/Icon";
 import React from "react";
-import { IconPropsType } from "../IconPropsType";
 
-const CornerCurve = ({ color, size }: IconPropsType) => {
+const CornerCurve = Icon(({ color, size }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +18,6 @@ const CornerCurve = ({ color, size }: IconPropsType) => {
       />
     </svg>
   );
-};
+});
 
 export default CornerCurve;
