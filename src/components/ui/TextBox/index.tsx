@@ -30,7 +30,7 @@ const TextBox = forwardRef<
     modifiers: [{ name: "offset", options: { offset: [0, 5] } }],
   });
   const textBoxClassName =
-    "rounded-lg border border-customGray/50 bg-transparent px-5 py-3 placeholder:text-customGray/50 focus:outline-none dark:border-customDirtyWhite/50 placeholder:dark:text-customDirtyWhite/50";
+    "rounded-lg border border-customGray/50 bg-transparent px-5 py-3 placeholder:text-customGray/50 focus:outline-none dark:border-customDirtyWhite/50 placeholder:dark:text-customDirtyWhite/50 w-full";
 
   const renderTextBox = () => {
     if (type === "textarea") {
@@ -42,7 +42,7 @@ const TextBox = forwardRef<
           className={cn(
             textBoxClassName,
             {
-              "border-red-500": error,
+              "border-red-500 dark:border-red-500": error,
             },
             props.className,
           )}
@@ -57,7 +57,7 @@ const TextBox = forwardRef<
         className={cn(
           textBoxClassName,
           {
-            "border-red-500": error,
+            "border-red-500 dark:border-red-500": error,
           },
           props.className,
         )}
@@ -65,18 +65,25 @@ const TextBox = forwardRef<
     );
   };
 
-  return (
-    <>
-      {renderTextBox()}
+  const renderError = () => {
+    if (typeof error !== "string") {
+      return null;
+    }
+
+    return (
       <div
-        ref={errorRef}
-        className={cn("pointer-events-none text-sm font-medium text-red-500", {
-          hidden: typeof error !== "string",
-        })}
-        style={styles.popper}
-        {...attributes.popper}
+        className={cn("pointer-events-none text-sm font-medium text-red-500")}
       >
         {error}
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <div className="h-fit w-full">
+        {renderTextBox()}
+        {renderError()}
       </div>
     </>
   );

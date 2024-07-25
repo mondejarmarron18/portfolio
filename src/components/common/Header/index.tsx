@@ -33,7 +33,7 @@ const Header = () => {
       <div
         className={cn(
           inter.className,
-          "flex flex-[0.8] flex-col justify-center px-2 text-lg font-bold",
+          "flex flex-1 flex-col justify-center px-2 text-lg font-bold",
         )}
       >
         {/* ポートフォリオ */}{" "}

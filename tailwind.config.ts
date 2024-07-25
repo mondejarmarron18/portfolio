@@ -16,6 +16,9 @@ const config: Config = {
         shake: "shake 0.5s ease-in-out forwards",
         wiggle: "wiggle 1s ease-in-out forwards",
         "spin-slow": "spin 3s linear infinite",
+        "spin-slow-2x": "spin 30s linear infinite",
+        "spin-slow-3x": "spin 24s linear infinite",
+        "spin-slow-4x": "spin 20s linear  infinite",
       },
       keyframes: {
         shake: {

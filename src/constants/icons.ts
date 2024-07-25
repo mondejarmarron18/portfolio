@@ -1,4 +1,5 @@
 import ArrowIcon from "@/components/icons/ArrowIcon";
+import DownloadIcon from "@/components/icons/DownloadIcon";
 import FingerHeartIcon from "@/components/icons/FingerHeartIcon";
 import HomeIcon from "@/components/icons/HomeIcon";
 import LoadingIcon from "@/components/icons/LoadingIcon";
@@ -18,6 +19,7 @@ const icons = {
   LoadingIcon,
   HomeIcon,
   SendIcon,
+  DownloadIcon,
   // Add more icons here
 } as const;
 

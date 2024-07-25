@@ -6,10 +6,9 @@ import React from "react";
 
 type GeneralLayoutPropsType = {
   children: React.ReactNode;
-  title?: string | [string, string];
 };
 
-const GeneralLayout = ({ children, title }: GeneralLayoutPropsType) => {
+const GeneralLayout = ({ children }: GeneralLayoutPropsType) => {
   const renderBgBlur = () => {
     return (
       <>

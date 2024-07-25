@@ -1,10 +1,10 @@
 "use client";
 
+import GeneralLayout from "@/components/layouts/GeneralLayout";
 import Button from "@/components/ui/Button";
 import Heading from "@/components/ui/Heading";
 import Paragraph from "@/components/ui/Paragraph";
 import TextBox from "@/components/ui/TextBox";
-import customTheme from "@/constants/customTheme";
 import useContactForm, { ContactFormType } from "@/hooks/forms/useContactForm";
 import api from "@/utils/api";
 import cn from "@/utils/cn";
@@ -38,7 +38,7 @@ const ContactPage = () => {
   const handleOnSubmit = handleSubmit((data) => mutate(data));
 
   return (
-    <>
+    <GeneralLayout>
       <div className="flex h-full w-full flex-col justify-center">
         <div className="flex max-w-xl flex-col gap-8">
           <div>
@@ -46,7 +46,7 @@ const ContactPage = () => {
               Get in{" "}
               <span className="text-secondary dark:text-primary">Touch</span>
             </Heading>
-            <Paragraph>
+            <Paragraph className="text-sm opacity-70 lg:text-base">
               {`For any inquiries, feel free to send me a message.`}
             </Paragraph>
           </div>
@@ -58,27 +58,18 @@ const ContactPage = () => {
             <TextBox
               type="text"
               placeholder="Full Name"
-              className={cn("w-full", {
-                "mb-4": errors.fullName,
-              })}
               error={errors.fullName?.message}
               {...register("fullName")}
             />
 
             <TextBox
               placeholder="Email Address"
-              className={cn("w-full", {
-                "mb-4": errors.email,
-              })}
               error={errors.email?.message}
               {...register("email")}
             />
             <TextBox
               placeholder="Your Message"
               type="textarea"
-              className={cn("w-full", {
-                "mb-4": errors.message,
-              })}
               error={errors.message?.message}
               {...register("message")}
             />
@@ -100,7 +91,7 @@ const ContactPage = () => {
         </div>
       </div>
       <ToastContainer />
-    </>
+    </GeneralLayout>
   );
 };
 

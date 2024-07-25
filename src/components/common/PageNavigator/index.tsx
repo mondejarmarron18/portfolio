@@ -17,34 +17,42 @@ const PageNavigator = ({ className, ...props }: PageNavigatorPropsType) => {
   const { theme } = useTheme();
 
   const currentPageIndex = pages.findIndex((page) => page.url === path);
+  const isFirstPage = currentPageIndex === 0;
+  const isLastPage = currentPageIndex === pages.length - 1;
+
   const goBack = () => {
+    if (isFirstPage) return;
+
     router.push(pages[currentPageIndex - 1].url);
   };
   const goForward = () => {
+    if (isLastPage) return;
+
     router.push(pages[currentPageIndex + 1].url);
   };
 
   return (
     <div className={cn("flex w-fit flex-col gap-2", className)} {...props}>
-      {pages?.[0].url !== path && (
-        <IconButton
-          icon={{
-            name: "ArrowIcon",
-            color: theme === "light" ? colors.secondary : colors.primary,
-          }}
-          onClick={goBack}
-          className="rotate-180"
-        />
-      )}
-      {pages?.[pages.length - 1].url !== path && (
-        <IconButton
-          icon={{
-            name: "ArrowIcon",
-            color: theme === "light" ? colors.secondary : colors.primary,
-          }}
-          onClick={goForward}
-        />
-      )}
+      <IconButton
+        icon={{
+          name: "ArrowIcon",
+          color: theme === "light" ? colors.secondary : colors.primary,
+        }}
+        onClick={goBack}
+        className={cn("rotate-180", {
+          "opacity-30": isFirstPage,
+        })}
+      />
+      <IconButton
+        icon={{
+          name: "ArrowIcon",
+          color: theme === "light" ? colors.secondary : colors.primary,
+        }}
+        onClick={goForward}
+        className={cn("", {
+          "opacity-30": isLastPage,
+        })}
+      />
     </div>
   );
 };

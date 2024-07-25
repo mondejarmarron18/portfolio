@@ -5,8 +5,8 @@ const text = "Loading LOADING LOADING";
 
 const Loading = () => {
   return (
-    <div className="fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-customWhite dark:bg-customBlack">
-      <div className="animate-spin-slow relative flex h-2 w-2 items-center justify-center text-xl font-bold uppercase text-secondary dark:text-primary">
+    <div className="fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-customWhite dark:bg-customBlack">
+      <div className="relative flex h-2 w-2 animate-spin-slow items-center justify-center text-xl font-bold uppercase text-secondary dark:text-primary">
         {text.split("").map((char, index) => (
           <div
             key={index}

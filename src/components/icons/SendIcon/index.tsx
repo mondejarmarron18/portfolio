@@ -4,16 +4,15 @@ import Icon from "@/components/hoc/Icon";
 const SendIcon = Icon(({ color, size }) => {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width={size || "24"}
       height={size || "24"}
-      viewBox="0 0 35 34"
+      viewBox="0 0 27 26"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="iconamoon:send-light" clipPath="url(#clip0_10_1919)">
+      <g clipPath="url(#clip0_10_1919)">
         <path
-          id="Vector"
-          d="M12.5507 21.9791L8.27907 18.5616C7.05648 17.5837 7.38105 15.6427 8.85607 15.1166L21.3026 10.6717C22.8914 10.1039 24.4259 11.6384 23.858 13.2272L19.4139 25.6744C18.8871 27.1487 16.9468 27.474 15.9689 26.2514L12.5507 21.9791ZM12.5507 21.9791L17.5005 17.0293"
+          d="M8.12989 18.2862L3.82982 14.8199C2.5991 13.8279 2.88844 11.9059 4.3443 11.4085L16.629 7.20588C18.1972 6.66899 19.7471 8.21884 19.2102 9.78705L15.0083 22.0725C14.5102 23.5276 12.5888 23.8177 11.5969 22.587L8.12989 18.2862ZM8.12989 18.2862L12.9612 13.4548"
           stroke={color || "#2B2B2B"}
           strokeWidth="1.5"
           strokeLinecap="round"
@@ -23,10 +22,10 @@ const SendIcon = Icon(({ color, size }) => {
       <defs>
         <clipPath id="clip0_10_1919">
           <rect
-            width="24"
-            height="24"
+            width="17.97"
+            height="17.9705"
             fill="white"
-            transform="translate(0.529297 17.0293) rotate(-45)"
+            transform="translate(0.792969 13.293) rotate(-45)"
           />
         </clipPath>
       </defs>
