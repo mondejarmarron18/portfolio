@@ -19,10 +19,10 @@ const ExperienceTree = ({ experiences }: ExperienceTreeProps) => {
           {i % 2 === 1 && <div></div>}
           <div
             className={cn(
-              "border-secondary px-[15px] pt-8 text-base dark:border-primary md:pt-10 lg:pt-12 lg:text-lg xl:pt-16",
+              "border-secondary pt-8 text-sm dark:border-primary sm:text-base md:pt-10 lg:pt-12 lg:text-lg xl:pt-16",
               {
-                "border-r-2 text-right": i % 2 === 0,
-                "-ml-[2px] border-l-2 text-left": i % 2 === 1,
+                "border-r-2 pr-[15px] text-right": i % 2 === 0,
+                "-ml-[2px] border-l-2 pl-[15px] text-left": i % 2 === 1,
               },
             )}
           >
@@ -31,7 +31,7 @@ const ExperienceTree = ({ experiences }: ExperienceTreeProps) => {
               {exp.date.to ? formatDate(exp.date.to) : "Present"}
               <span
                 className={cn(
-                  "absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full border-2 border-primary bg-customGray",
+                  "absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full border-2 border-secondary bg-customWhite dark:border-primary dark:bg-customBlack",
                   {
                     "left-full translate-x-1/2": i % 2 === 0,
                     "right-full -translate-x-1/2": i % 2 === 1,

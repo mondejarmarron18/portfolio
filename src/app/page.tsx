@@ -34,12 +34,12 @@ const HomePage = () => {
             src={avatar}
             alt="avatar"
             priority
-            className="h-[200px] w-[200px] object-contain lg:h-[300px] lg:w-[300px]"
+            className="h-[150px] w-[150px] object-contain sm:h-[200px] sm:w-[200px] md:h-[250px] md:w-[250px] lg:h-[300px] lg:w-[300px]"
           />
           <div className="flex flex-col gap-2">
             <Heading
               variant="h1"
-              className="flex h-fit flex-col gap-2 sm:flex-row md:gap-4"
+              className="flex h-fit flex-col sm:flex-row sm:gap-2 md:gap-4"
             >
               <span>{"Hi, I am Marvin a"}</span>
               <span className="bg-gradient-to-tr from-primary to-secondary bg-clip-text text-transparent">
@@ -53,23 +53,15 @@ const HomePage = () => {
                 />
               </span>
             </Heading>
-            <div className="flex flex-col gap-2">
-              <Paragraph>
-                A passionate and dedicated software engineer for more than{" "}
-                <span className="bg-gradient-to-tr from-primary to-secondary bg-clip-text font-semibold text-transparent">
-                  4 years,
-                </span>{" "}
-                with a knack for creating innovative and efficient solutions.
-              </Paragraph>
-              <Paragraph>
-                With my expertise in{" "}
-                <span className="bg-gradient-to-tr from-primary to-secondary bg-clip-text font-semibold text-transparent">
-                  web development
-                </span>{" "}
-                I am committed to delivering high-quality software that meets
-                user needs and exceeds expectations.
-              </Paragraph>
-            </div>
+            <Paragraph className="text-sm sm:text-base">
+              A passionate and dedicated software engineer for more than{" "}
+              <span className="bg-gradient-to-tr from-primary to-secondary bg-clip-text font-semibold text-transparent">
+                4 years,
+              </span>{" "}
+              with a knack for creating innovative, efficient solutions and
+              committed to delivering high-quality software that meets user
+              needs and exceeds expectations.
+            </Paragraph>
           </div>
           <div className="flex flex-wrap gap-2">
             <Button

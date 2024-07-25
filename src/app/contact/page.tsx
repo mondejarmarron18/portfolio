@@ -40,7 +40,7 @@ const ContactPage = () => {
   return (
     <GeneralLayout>
       <div className="flex h-full w-full flex-col justify-center">
-        <div className="flex max-w-xl flex-col gap-8">
+        <div className="flex max-w-xl flex-col gap-2 sm:gap-4 md:gap-8">
           <div>
             <Heading variant="h1">
               Get in{" "}
@@ -53,7 +53,7 @@ const ContactPage = () => {
 
           <form
             onSubmit={handleOnSubmit}
-            className={cn("flex w-full flex-col gap-5")}
+            className={cn("flex w-full flex-col gap-2 md:gap-5")}
           >
             <TextBox
               type="text"

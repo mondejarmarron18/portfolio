@@ -54,7 +54,7 @@ const Button = (
   return (
     <button
       className={cn(
-        "group flex items-center gap-2 rounded-custom px-8 py-3 text-sm font-semibold",
+        "group flex items-center gap-2 rounded-custom px-8 py-3 text-sm font-semibold md:text-base",
         ButtonVariant(),
         className,
         icon && (icon?.position === "right" ? "flex-row-reverse pr-4" : "pl-4"),
