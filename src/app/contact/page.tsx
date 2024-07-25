@@ -8,7 +8,6 @@ import TextBox from "@/components/ui/TextBox";
 import useContactForm, { ContactFormType } from "@/hooks/forms/useContactForm";
 import api from "@/utils/api";
 import cn from "@/utils/cn";
-import notify from "@/utils/notify";
 import { useMutation } from "@tanstack/react-query";
 import { useTheme } from "next-themes";
 import React, { useEffect } from "react";
@@ -22,7 +21,7 @@ const ContactPage = () => {
     resetField,
     formState: { errors },
   } = useContactForm();
-  const { mutate, isPending, isSuccess } = useMutation({
+  const { mutate, isPending, isSuccess, reset } = useMutation({
     mutationFn: (data: ContactFormType) => api.post("/api/contact", data),
   });
 
@@ -31,7 +30,7 @@ const ContactPage = () => {
       resetField("fullName");
       resetField("email");
       resetField("message");
-      notify("Thanks for reaching out!", (theme as "dark" | "light") || "dark");
+      setTimeout(() => reset(), 3000);
     }
   }, [isSuccess]);
 
@@ -78,19 +77,25 @@ const ContactPage = () => {
               contacting you. We prioritize your privacy and ensure that your
               data is not saved or utilized for any other purposes.
             </Paragraph>
-            <Button
-              variant="primary"
-              icon={{
-                name: isPending ? "LoadingIcon" : "SendIcon",
-              }}
-              className="w-fit"
-            >
-              {isPending ? "Sending..." : "Send"}
-            </Button>
+            <div className="flex flex-col gap-2">
+              {isSuccess && (
+                <Paragraph className="text-sm font-medium text-secondary dark:text-primary lg:text-base">
+                  Message sent. Thank you!
+                </Paragraph>
+              )}
+              <Button
+                variant="primary"
+                icon={{
+                  name: isPending ? "LoadingIcon" : "SendIcon",
+                }}
+                className="w-fit"
+              >
+                {isPending ? "Sending..." : "Send"}
+              </Button>
+            </div>
           </form>
         </div>
       </div>
-      <ToastContainer />
     </GeneralLayout>
   );
 };
