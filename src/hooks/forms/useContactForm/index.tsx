@@ -3,14 +3,13 @@ import { useForm } from "react-hook-form";
 import z from "zod";
 
 const contactFormSchema = z.object({
-  fullName: z.string().min(3, "Full name is required"),
+  fullName: z.string().min(1, "Full name is required"),
   email: z
-    .string({
-      required_error: "Email address is required",
-    })
+    .string()
+    .min(1, "Email address is required")
     .email("Please enter a valid email address"),
 
-  message: z.string().min(3, "Full name is required"),
+  message: z.string().min(1, "Full name is required"),
 });
 
 export type ContactFormType = z.infer<typeof contactFormSchema>;

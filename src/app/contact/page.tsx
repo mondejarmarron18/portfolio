@@ -9,12 +9,9 @@ import useContactForm, { ContactFormType } from "@/hooks/forms/useContactForm";
 import api from "@/utils/api";
 import cn from "@/utils/cn";
 import { useMutation } from "@tanstack/react-query";
-import { useTheme } from "next-themes";
 import React, { useEffect } from "react";
-import { ToastContainer } from "react-toastify";
 
 const ContactPage = () => {
-  const { theme } = useTheme();
   const {
     handleSubmit,
     register,
