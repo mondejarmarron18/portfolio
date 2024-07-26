@@ -65,12 +65,12 @@ const Header = () => {
           />
         )}
 
-        <IconButton
+        {/* <IconButton
           icon={{
             name: "MenuIcon",
             color: theme === "light" ? colors.secondary : colors.primary,
           }}
-        />
+        /> */}
       </div>
     </div>
   );

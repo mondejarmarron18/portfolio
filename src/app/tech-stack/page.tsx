@@ -2,99 +2,105 @@
 
 import GeneralLayout from "@/components/layouts/GeneralLayout";
 import Heading from "@/components/ui/Heading";
-import IconButton from "@/components/ui/IconButton";
+import { theme } from "tailwindcss/defaultConfig";
 import cn from "@/utils/cn";
 import React, { useLayoutEffect, useState } from "react";
+import techStacks from "@/constants/techStacks";
+
+const techStacksLength = techStacks.length;
 
 const techsConfig = [
   {
-    stacks: 40,
-    height: 150,
-    gap: 15,
-  },
-  {
-    stacks: 17,
+    stacks: techStacks,
     height: 110,
-    gap: 30,
+    gap: 12.5,
   },
   {
-    stacks: 15,
-    height: 70,
-    gap: 40,
+    stacks: techStacks.reverse().slice(techStacksLength / 4),
+    height: 80,
+    gap: 16.5,
+  },
+  {
+    stacks: techStacks.slice(techStacksLength / 2),
+    height: 50,
+    gap: 24,
   },
 ];
 
-const screens = [768, 1024, 1440];
+const screens = Object.values(theme?.screens || {}).map((screen) =>
+  screen.replace("px", ""),
+);
 
 const TechStack = () => {
   const [techs, setTechs] = useState(techsConfig);
 
   const reconfigTechs = () => {
-    if (window.innerWidth < screens[1]) {
-      return setTechs((prev) => [
-        {
-          stacks: 20,
-          height: 150,
-          gap: 20,
-        },
-        {
-          stacks: 12,
-          height: 130,
-          gap: 30,
-        },
-        {
-          stacks: 10,
-          height: 110,
-          gap: 40,
-        },
-      ]);
-    }
+    const heights: number[][] = [
+      [45, 30, 15],
+      [65, 47, 30],
+      [80, 58, 35],
+      [110, 80, 50],
+    ];
 
-    setTechs(techsConfig);
+    const windowInnerWidth = window.innerWidth;
+
+    loop: for (let i = 0; i < screens.length - 1; i++) {
+      if (windowInnerWidth < screens[i]) {
+        const newTechs = heights[i].map((height, j) => {
+          return {
+            ...techs[j],
+            height,
+          };
+        });
+
+        setTechs(newTechs);
+
+        break loop;
+      }
+    }
   };
 
-  // useLayoutEffect(() => {
-  //   window.addEventListener("load", reconfigTechs);
-  //   window.addEventListener("resize", reconfigTechs);
-  // }, []);
+  useLayoutEffect(() => {
+    reconfigTechs();
+    window.addEventListener("resize", reconfigTechs);
+  }, []);
 
   return (
     <GeneralLayout>
-      <div className="relative flex h-full w-full flex-col items-center">
-        <Heading variant="h1" className="text-center">
-          <span className="text-primary">Tech</span> Stack
-        </Heading>
-        <p className="pb-4">Coming Soom</p>
-
+      <div className="relative flex h-full w-full flex-row items-center">
+        <div className="absolute flex flex-col drop-shadow-lg">
+          <Heading variant="h1" className="flex flex-col leading-none md:gap-2">
+            <span className="text-base sm:text-[1em]">Tech</span>{" "}
+            <span className="text-secondary dark:text-primary sm:text-[1.5em]">
+              Stack
+            </span>
+          </Heading>
+        </div>
         <div className="relative flex h-full w-full items-center overflow-hidden">
           {techs.map(({ stacks, height, gap }, i) => (
             <div
-              key={stacks}
+              key={i}
               style={{
                 height: `${height * 15}px`,
               }}
               className="absolute flex items-center justify-center"
             >
-              {[...Array(stacks)].map((_, j) => (
+              {stacks.map((stack, j) => (
                 <div
                   key={j}
-                  className={cn(
-                    `lef-0 absolute top-0 h-full animate-spin-slow-2x`,
-                    {
-                      "rotate-180": i % 2 === 1,
-                    },
-                  )}
+                  className={cn(`lef-0 absolute top-0 h-full cursor-none`, {
+                    "rotate-180": i % 2 === 1,
+                    "animate-spin-slow-2x": i === 0,
+                    "animate-spin-slow-3x": i === 1,
+                    "animate-spin-slow-4x": i === 2,
+                  })}
                   style={{
                     rotate: `${j * gap}deg`,
                   }}
                 >
-                  {}
-                  <IconButton
-                    icon={{
-                      name: "StarIcon",
-                      size: "40px",
-                    }}
-                  />
+                  <div className="absolute w-full -rotate-90 text-xs font-semibold uppercase sm:text-sm md:text-base lg:text-lg">
+                    {stack}
+                  </div>
                 </div>
               ))}
             </div>
