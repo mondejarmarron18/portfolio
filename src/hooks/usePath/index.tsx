@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import pages from "@/constants/pages";
 
-const getPageIndex = (path: string) => {
+const getPageIndex = (path: (typeof pages)[number]["url"]) => {
   return pages.findIndex(({ url }) => url === path);
 };
 
@@ -21,6 +21,7 @@ const usePath = () => {
   return {
     prevPath: Cookies.get("path"),
     currentPath: path,
+    getPageIndex,
   };
 };
 

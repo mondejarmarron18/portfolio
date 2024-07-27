@@ -1,4 +1,6 @@
-import React, { HTMLAttributes, useEffect } from "react";
+"use client";
+
+import React, { HTMLAttributes } from "react";
 import IconButton from "../../ui/IconButton";
 import cn from "@/utils/cn";
 import pages from "@/constants/pages";

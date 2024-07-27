@@ -1,3 +1,4 @@
+// !DEPRECATED: DO NOT USE, USE SKILLS INSTEAD
 const techStacks = [
   "React.js",
   "Next.js",
@@ -20,9 +21,9 @@ const techStacks = [
   "Vitest",
   "Redux Toolkit",
   "Axios",
-  "ReactHook Form",
+  "Figma",
   "Docker",
-  "Meta Webhook",
+  "Vite",
   "Git",
   "React Query",
   "Github",

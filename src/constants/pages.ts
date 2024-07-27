@@ -4,13 +4,23 @@ const pages = [
     url: "/",
   },
   {
-    name: "Tech Stack",
-    url: "/tech-stack",
-  },
-  {
     name: "Experience",
     url: "/experience",
   },
+
+  {
+    name: "Skills",
+    url: "/skills",
+  },
+  {
+    name: "Projects",
+    url: "/projects",
+  },
+  {
+    name: "Blogs",
+    url: "/blogs",
+  },
+
   {
     name: "Contact",
     url: "/contact",

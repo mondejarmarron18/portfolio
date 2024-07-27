@@ -6,9 +6,15 @@ import { Poppins } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "iForgeTech",
-  description: "Software Engineer",
-};
 
+  description:
+    "Welcome! Discover a range of projects and professional work. Dive into a portfolio that highlights creativity and technical expertise.",
+  openGraph: {
+    title: "iForgeTech",
+    description:
+      "Welcome! Discover a range of projects and professional work. Dive into a portfolio that highlights creativity and technical expertise.",
+  },
+};
 const inter = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],

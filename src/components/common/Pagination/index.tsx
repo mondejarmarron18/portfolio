@@ -1,8 +1,9 @@
+"use client";
+
 import React, { HTMLAttributes } from "react";
 import cn from "@/utils/cn";
 import { usePathname, useRouter } from "next/navigation";
 import pages from "@/constants/pages";
-import theme from "tailwindcss/colors";
 
 type PaginationPropsType = HTMLAttributes<HTMLDivElement>;
 

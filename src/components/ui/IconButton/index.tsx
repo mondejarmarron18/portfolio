@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import icons, { IconNameType } from "@/constants/icons";
 import cn from "@/utils/cn";
 import customTheme from "@/constants/customTheme";
@@ -13,39 +13,39 @@ type IconButtonPropsType = ButtonHTMLAttributes<HTMLButtonElement> & {
   };
 };
 
-const IconButton = ({
-  children,
-  className,
-  icon,
-  ...props
-}: IconButtonPropsType) => {
-  const Icon = icons[icon.name];
+const IconButton = forwardRef<HTMLButtonElement, IconButtonPropsType>(
+  ({ children, className, icon, ...props }, ref) => {
+    const Icon = icons[icon.name];
 
-  const { theme } = useTheme();
-  const { colors } = customTheme;
+    const { theme } = useTheme();
+    const { colors } = customTheme;
 
-  return (
-    <button
-      className={cn(
-        "group rounded-xl bg-customDirtyWhite p-3 dark:bg-customGray",
-        className,
-      )}
-      {...props}
-    >
-      <div className="group-hover:animate-shake">
-        <Icon
-          color={
-            icon?.color
-              ? icon.color
-              : theme === "light"
-                ? colors.customBlack
-                : colors.customWhite
-          }
-          size={icon.size}
-        />
-      </div>
-    </button>
-  );
-};
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          "group rounded-xl bg-customDirtyWhite p-3 dark:bg-customGray",
+          className,
+        )}
+        {...props}
+      >
+        <div className="group-hover:animate-shake">
+          <Icon
+            color={
+              icon?.color
+                ? icon.color
+                : theme === "light"
+                  ? colors.customBlack
+                  : colors.customWhite
+            }
+            size={icon.size}
+          />
+        </div>
+      </button>
+    );
+  },
+);
+
+IconButton.displayName = "IconButton";
 
 export default IconButton;

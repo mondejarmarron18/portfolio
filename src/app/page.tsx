@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { PageUrlType } from "@/constants/pages";
 import GeneralLayout from "@/components/layouts/GeneralLayout";
 
+
 const HomePage = () => {
   const router = useRouter();
 

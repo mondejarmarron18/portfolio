@@ -1,4 +1,3 @@
-"use client";
 import Header from "@/components/common/Header";
 import PageNavigator from "@/components/common/PageNavigator";
 import Pagination from "@/components/common/Pagination";

@@ -1,4 +1,5 @@
 import ArrowIcon from "@/components/icons/ArrowIcon";
+import CloseIcon from "@/components/icons/CloseIcon";
 import DownloadIcon from "@/components/icons/DownloadIcon";
 import FingerHeartIcon from "@/components/icons/FingerHeartIcon";
 import HomeIcon from "@/components/icons/HomeIcon";
@@ -20,6 +21,7 @@ const icons = {
   HomeIcon,
   SendIcon,
   DownloadIcon,
+  CloseIcon,
   // Add more icons here
 } as const;
 
