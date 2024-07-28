@@ -9,7 +9,7 @@ const contactFormSchema = z.object({
     .min(1, "Email address is required")
     .email("Please enter a valid email address"),
 
-  message: z.string().min(1, "Full name is required"),
+  message: z.string().min(1, "Message is required"),
 });
 
 export type ContactFormType = z.infer<typeof contactFormSchema>;
