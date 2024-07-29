@@ -18,14 +18,16 @@ const GeneralLayout = ({ children }: GeneralLayoutPropsType) => {
   };
 
   return (
-    <div className="relative flex h-full w-full max-w-[1800px] flex-col overflow-hidden rounded-2xl">
+    <div className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl">
       <Header />
       {renderBgBlur()}
 
-      <div className="relative flex flex-1 overflow-hidden rounded-2xl rounded-tr-none bg-customWhite/60 backdrop-blur-xl dark:bg-customBlack/60">
-        <main className="relative flex h-full w-full flex-1 flex-col p-4 pr-0 sm:p-8 sm:pr-1 md:p-[5%] md:pr-[1%]">
-          {children}
-        </main>
+      <div className="relative flex w-full flex-1 overflow-hidden rounded-2xl rounded-tr-none bg-customWhite/60 backdrop-blur-xl dark:bg-customBlack/60">
+        <div className="flex flex-1 justify-center">
+          <main className="relative flex h-full w-full max-w-[1800px] flex-col p-4 pr-0 sm:p-8 sm:pr-1 md:p-[50px] md:pr-[1%]">
+            {children}
+          </main>
+        </div>
 
         <div className="flex flex-shrink-0 flex-col items-center gap-4 p-2 md:p-4">
           <Pagination className="flex-1 justify-end" />

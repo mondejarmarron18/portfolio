@@ -63,22 +63,24 @@ const Menu = forwardRef<HTMLMenuElement>(({}, ref) => {
   return (
     <menu
       ref={ref}
-      className="fixed right-0 top-0 z-10 flex h-full w-full flex-col items-end bg-customWhite p-4 dark:bg-customBlack lg:p-6"
+      className="fixed right-0 top-0 z-10 flex h-full w-full flex-col items-center bg-customWhite p-4 dark:bg-customBlack lg:p-6"
     >
-      <AnimatePresence>
-        <AnimatedIconButton
-          variants={animationVariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          onClick={toggleMenu}
-          icon={{
-            name: "CloseIcon",
-            color: theme === "light" ? colors.secondary : colors.primary,
-          }}
-        />
-      </AnimatePresence>
-      <nav className="grid w-full flex-1 pt-4 text-lg font-semibold sm:grid-cols-2 md:grid-cols-3">
+      <div className="flex w-full justify-end">
+        <AnimatePresence>
+          <AnimatedIconButton
+            variants={animationVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            onClick={toggleMenu}
+            icon={{
+              name: "CloseIcon",
+              color: theme === "light" ? colors.secondary : colors.primary,
+            }}
+          />
+        </AnimatePresence>
+      </div>
+      <nav className="grid w-full max-w-[1800px] flex-1 pt-4 text-lg font-semibold sm:grid-cols-2 md:grid-cols-3">
         {Object.values(pages).map((page) => {
           const { wordsCount, gap } = circledTextConfig(page.name);
           const text = [...Array(wordsCount)].map(() => page.name).join(" ");
