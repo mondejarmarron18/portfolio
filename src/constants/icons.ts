@@ -2,10 +2,12 @@ import ArrowIcon from "@/components/icons/ArrowIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
 import DownloadIcon from "@/components/icons/DownloadIcon";
 import FingerHeartIcon from "@/components/icons/FingerHeartIcon";
+import GithubIcon from "@/components/icons/GithubIcon";
 import HomeIcon from "@/components/icons/HomeIcon";
 import LoadingIcon from "@/components/icons/LoadingIcon";
 import MenuIcon from "@/components/icons/MenuIcon";
 import MoonIcon from "@/components/icons/MoonIcon";
+import PlanetIcon from "@/components/icons/PlanetIcon";
 import SendIcon from "@/components/icons/SendIcon";
 import StarIcon from "@/components/icons/StarIcon";
 import SunIcon from "@/components/icons/SunIcon";
@@ -22,6 +24,8 @@ const icons = {
   SendIcon,
   DownloadIcon,
   CloseIcon,
+  GithubIcon,
+  PlanetIcon,
   // Add more icons here
 } as const;
 

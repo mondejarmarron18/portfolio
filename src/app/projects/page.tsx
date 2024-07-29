@@ -1,11 +1,14 @@
 "use client";
 
 import GeneralLayout from "@/components/layouts/GeneralLayout";
+import Button from "@/components/ui/Button";
 import Heading from "@/components/ui/Heading";
 import Paragraph from "@/components/ui/Paragraph";
+import useScreen from "@/hooks/useScreen";
 import cn from "@/utils/cn";
+import { screens } from "@/utils/theme";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 type ProjectType = {
   id: number;
@@ -13,6 +16,7 @@ type ProjectType = {
   description: string;
   bgColor: string;
   image: string;
+  githubLink?: string;
 };
 
 const projects: ProjectType[] = [
@@ -51,93 +55,135 @@ const projects: ProjectType[] = [
   },
 ];
 
+const mediumScreenSize = +screens.md.split("px")[0];
+
 const ProjectsPage = () => {
   const projectSlides = useRef<HTMLDivElement>(null);
+  const { width } = useScreen();
   const [currentProject, setCurrentProject] = useState<ProjectType>(
     projects[0],
   );
+  const isMediumScreen = width > mediumScreenSize;
 
   useEffect(() => {
     projectSlides.current?.addEventListener("swiperslidechange", (e) => {
       const swiper = e as unknown as any;
       const realIndex = swiper.detail[0].realIndex as number;
+      console.log(realIndex);
 
       setCurrentProject(projects[realIndex]);
     });
   }, []);
 
+  const renderProjectsSlides = () => {
+    return (
+      <div
+        className="relative mt-auto flex w-full justify-center p-4 md:mt-0 md:h-[300px] md:items-end"
+        style={{
+          background: isMediumScreen
+            ? `linear-gradient(to top, ${currentProject.bgColor}, transparent)`
+            : "",
+        }}
+      >
+        <div
+          className="relative flex justify-center overflow-hidden"
+          style={{
+            width: width / 1.5 + "px",
+          }}
+        >
+          <swiper-container
+            ref={projectSlides}
+            slides-per-view={3}
+            centered-slides
+            loop
+            style={{
+              width: "600px",
+            }}
+          >
+            {projects.map((project) => (
+              <swiper-slide
+                key={project.id}
+                style={{
+                  height: "auto",
+                  width: "auto",
+                }}
+                suppressHydrationWarning
+              >
+                <div
+                  key={project.id}
+                  className={cn(
+                    "relative h-[100px] w-full scale-100 overflow-hidden rounded-lg transition-transform",
+                    {
+                      "scale-[0.85] grayscale":
+                        currentProject.id !== project.id,
+                    },
+                  )}
+                >
+                  <Image
+                    src={project.image}
+                    alt={"Project Slide"}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </swiper-slide>
+            ))}
+          </swiper-container>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <GeneralLayout>
-      <div className="flex h-full flex-col gap-4">
+      <div className="flex h-full flex-col gap-4 md:gap-6">
         <Heading variant="h1">
-          <span className="text-secondary dark:text-primary">Pro</span>jects
+          <span className="text-secondary dark:text-primary">PRO</span>jects
         </Heading>
 
-        <div className="relative w-full flex-1">
-          {currentProject && (
-            <div className="relative flex h-full w-full items-end overflow-hidden rounded-2xl">
+        {currentProject && (
+          <div className="relative flex h-full w-full flex-col gap-4 overflow-hidden rounded-xl md:justify-between md:rounded-2xl">
+            <div className="relative h-[200px] w-full overflow-hidden rounded-xl sm:h-[300px] md:absolute md:h-full">
               <Image
                 src={currentProject.image}
                 alt={currentProject.title}
                 fill
                 className="object-cover"
               />
-              <div
-                className="relative flex h-[300px] w-full flex-col justify-end p-[5%]"
-                style={{
-                  background: `linear-gradient(to top, ${currentProject.bgColor} 20%, transparent)`,
-                }}
-              >
+            </div>
+            <div
+              className="relative flex w-full flex-col gap-4 md:min-h-[300px] md:p-4 lg:p-8"
+              style={{
+                background: isMediumScreen
+                  ? `linear-gradient(to bottom, ${currentProject.bgColor} 20%, transparent)`
+                  : "",
+              }}
+            >
+              <div>
                 <Heading variant="h2" className="text-customWhite">
                   {currentProject.title}
                 </Heading>
-                <Paragraph className="text-customWhite">
+                <Paragraph className="max-w-3xl text-customWhite">
                   {currentProject.description}
                 </Paragraph>
               </div>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  variant="primary"
+                  icon={{
+                    name: "GithubIcon",
+                  }}
+                >
+                  Source Code
+                </Button>
+                <Button variant="ghost" icon={{ name: "PlanetIcon" }}>
+                  Live Demo
+                </Button>
+              </div>
             </div>
-          )}
-
-          <div className="absolute bottom-4 right-4 flex w-[300px] justify-center overflow-hidden rounded-lg">
-            <div className="w-[600px]">
-              <swiper-container
-                ref={projectSlides}
-                slides-per-view="3"
-                centered-slides
-                space-between="10"
-                loop
-              >
-                {projects.map((project) => (
-                  <swiper-slide
-                    key={project.id}
-                    style={{
-                      height: "auto",
-                      width: "auto",
-                    }}
-                    suppressHydrationWarning
-                  >
-                    <div
-                      key={project.id}
-                      className={cn(
-                        "relative h-[100px] w-full scale-100 overflow-hidden rounded-lg",
-                        {
-                          grayscale: currentProject.id !== project.id,
-                        },
-                      )}
-                    >
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </swiper-slide>
-                ))}
-              </swiper-container>
-            </div>
+            {renderProjectsSlides()}
           </div>
-        </div>
+        )}
       </div>
     </GeneralLayout>
   );
