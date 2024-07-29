@@ -62,7 +62,6 @@ const ProjectsPage = () => {
       const swiper = e as unknown as any;
       const realIndex = swiper.detail[0].realIndex as number;
 
-      console.log(swiper.detail[0]);
       setCurrentProject(projects[realIndex]);
     });
   }, []);
@@ -99,42 +98,44 @@ const ProjectsPage = () => {
             </div>
           )}
 
-          <div className="absolute bottom-4 right-4 w-[600px]">
-            <swiper-container
-              ref={projectSlides}
-              slides-per-view="3"
-              centered-slides
-              space-between="0"
-              loop
-            >
-              {projects.map((project) => (
-                <swiper-slide
-                  key={project.id}
-                  style={{
-                    height: "auto",
-                    width: "auto",
-                  }}
-                  suppressHydrationWarning
-                >
-                  <div
+          <div className="absolute bottom-4 right-4 flex w-[300px] justify-center overflow-hidden rounded-lg">
+            <div className="w-[600px]">
+              <swiper-container
+                ref={projectSlides}
+                slides-per-view="3"
+                centered-slides
+                space-between="10"
+                loop
+              >
+                {projects.map((project) => (
+                  <swiper-slide
                     key={project.id}
-                    className={cn(
-                      "relative h-[100px] w-full scale-100 overflow-hidden rounded-lg",
-                      {
-                        "scale-[0.7]": currentProject.id !== project.id,
-                      },
-                    )}
+                    style={{
+                      height: "auto",
+                      width: "auto",
+                    }}
+                    suppressHydrationWarning
                   >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </swiper-slide>
-              ))}
-            </swiper-container>
+                    <div
+                      key={project.id}
+                      className={cn(
+                        "relative h-[100px] w-full scale-100 overflow-hidden rounded-lg",
+                        {
+                          grayscale: currentProject.id !== project.id,
+                        },
+                      )}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </swiper-slide>
+                ))}
+              </swiper-container>
+            </div>
           </div>
         </div>
       </div>
