@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "Dive into topics such as best practices, cutting-edge technologies, and real-world solutions to common software development challenges.",
     images: [images.openGraph.blogs],
+    siteName: "iForgeTech | Blogs",
   },
 };
 

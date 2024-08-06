@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description:
       "Reach out through the contact page for inquiries, opportunities, or collaborations",
     images: [images.openGraph.contact],
+    siteName: "iForgeTech | Contact",
   },
 };
 

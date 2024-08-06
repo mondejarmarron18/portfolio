@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "Explore a comprehensive list of technical and non-technical skills, including expertise in web development, frontend and backend technologies, and more.",
     images: [images.openGraph.skills],
+    siteName: "iForgeTech | Skills",
   },
 };
 

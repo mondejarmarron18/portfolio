@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "Discover an extensive portfolio of projects, demonstrating proficiency in various web development technologies, frontend and backend solutions, and innovative problem-solving.",
     images: [images.openGraph.projects],
+    siteName: "iForgeTech | Projects",
   },
 };
 

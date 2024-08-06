@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description:
       "Discover his expertise in React.js, Node.js, and TypeScript, and how his skills have driven impactful projects.",
     images: [images.openGraph.experience],
+    siteName: "iForgeTech | Experience",
   },
 };
 

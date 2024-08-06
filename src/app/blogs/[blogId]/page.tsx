@@ -28,6 +28,7 @@ export const generateMetadata = async ({
       title: blog.title,
       description: blog.description,
       images: blog.image,
+      siteName: `iForgeTech | Blog - ${blog.title}`,
     },
   };
 };
