@@ -1,5 +1,6 @@
 import cn from "@/utils/cn";
 import { Teko } from "next/font/google";
+import Link from "next/link";
 import React from "react";
 
 const inter = Teko({
@@ -15,9 +16,12 @@ const Logo = () => {
         "flex flex-[0.7] flex-col justify-center px-2 text-lg font-bold",
       )}
     >
-      <span className="w-fit text-secondary transition-colors dark:text-primary">
+      <Link
+        href="/"
+        className="w-fit text-secondary transition-colors dark:text-primary"
+      >
         iForgeTech
-      </span>
+      </Link>
     </div>
   );
 };

@@ -4,56 +4,13 @@ import GeneralLayout from "@/components/layouts/GeneralLayout";
 import Button from "@/components/ui/Button";
 import Heading from "@/components/ui/Heading";
 import Paragraph from "@/components/ui/Paragraph";
+import projects, { ProjectType } from "@/constants/projects";
 import useScreen from "@/hooks/useScreen";
 import cn from "@/utils/cn";
 import { screens } from "@/utils/theme";
 import Image from "next/image";
-import React, { useEffect, useMemo, useRef, useState } from "react";
-
-type ProjectType = {
-  id: number;
-  title: string;
-  description: string;
-  bgColor: string;
-  image: string;
-  githubLink?: string;
-};
-
-const projects: ProjectType[] = [
-  {
-    id: 1,
-    title: "AIA - AI Assistant",
-    description: "AIA is an AI assistant that can help you with various tasks.",
-    bgColor: "#21A9B8",
-    image:
-      "https://images.unsplash.com/photo-1542744095-0d53267d353e?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 2,
-    title: "Chatbot - Meta Webhook",
-    description: "Customized your FB chatbot response to suit your needs.",
-    bgColor: "#272B55",
-    image:
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 3,
-    title: "OnSync Todo",
-    description:
-      "A web application where you can synchronize all of your to do tasks.",
-    bgColor: "#063745",
-    image:
-      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 4,
-    title: "E-Commerce",
-    description: "Level up your online store with our e-commerce platform.",
-    bgColor: "#3D367E",
-    image:
-      "https://images.unsplash.com/photo-1688561809321-e51e8a4d6651?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
+import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
 
 const mediumScreenSize = +screens.md.split("px")[0];
 
@@ -69,7 +26,6 @@ const ProjectsPage = () => {
     projectSlides.current?.addEventListener("swiperslidechange", (e) => {
       const swiper = e as unknown as any;
       const realIndex = swiper.detail[0].realIndex as number;
-      console.log(realIndex);
 
       setCurrentProject(projects[realIndex]);
     });
@@ -160,25 +116,50 @@ const ProjectsPage = () => {
               }}
             >
               <div>
-                <Heading variant="h2" className="text-customWhite">
+                <Heading variant="h2" className="md:text-customWhite">
                   {currentProject.title}
                 </Heading>
-                <Paragraph className="max-w-3xl text-customWhite">
+                <Paragraph className="max-w-3xl md:text-customWhite">
                   {currentProject.description}
                 </Paragraph>
               </div>
+              <div className="flex flex-wrap gap-1">
+                {currentProject.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="rounded-full bg-customWhite/70 px-3 py-1 text-sm font-medium dark:bg-customBlack/70"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
               <div className="flex flex-wrap gap-2">
-                <Button
-                  variant="primary"
-                  icon={{
-                    name: "GithubIcon",
-                  }}
-                >
-                  Source Code
-                </Button>
-                <Button variant="ghost" icon={{ name: "PlanetIcon" }}>
-                  Live Demo
-                </Button>
+                {!!currentProject.githubLink && (
+                  <Link href={currentProject.githubLink}>
+                    {" "}
+                    <Button
+                      variant="primary"
+                      icon={{
+                        name: "GithubIcon",
+                      }}
+                    >
+                      Source Code
+                    </Button>
+                  </Link>
+                )}
+
+                {!!currentProject.webLink && (
+                  <Link href={currentProject.webLink}>
+                    <Button
+                      variant="ghost"
+                      icon={{
+                        name: "PlanetIcon",
+                      }}
+                    >
+                      Visit Website
+                    </Button>
+                  </Link>
+                )}
               </div>
             </div>
             {renderProjectsSlides()}

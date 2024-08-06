@@ -1,6 +1,11 @@
 import config from "@/utils/config";
-import type { NextApiRequest } from "next";
 import { createTransport } from "nodemailer";
+
+type Post = {
+  fullName: string;
+  email: string;
+  message: string;
+};
 
 const transporter = createTransport({
   service: "Gmail",
@@ -13,14 +18,8 @@ const transporter = createTransport({
   },
 });
 
-type PostProps = {
-  fullName: string;
-  email: string;
-  message: string;
-};
-
 export const POST = async (req: Request) => {
-  const { fullName, email, message }: PostProps = await req.json();
+  const { fullName, email, message }: Post = await req.json();
 
   try {
     await transporter.sendMail({

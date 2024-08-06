@@ -9,7 +9,7 @@ import Heading from "@/components/ui/Heading";
 import { useRouter } from "next/navigation";
 import { PageUrlType } from "@/constants/pages";
 import GeneralLayout from "@/components/layouts/GeneralLayout";
-
+import images from "@/constants/images";
 
 const HomePage = () => {
   const router = useRouter();
@@ -31,12 +31,16 @@ const HomePage = () => {
     <GeneralLayout>
       <div className="flex h-full items-center">
         <div className="flex w-fit max-w-3xl flex-col gap-4 md:gap-8">
-          <Image
-            src={avatar}
-            alt="avatar"
-            priority
-            className="h-[150px] w-[150px] object-contain sm:h-[200px] sm:w-[200px] md:h-[250px] md:w-[250px] lg:h-[300px] lg:w-[300px]"
-          />
+          <div className="relative h-[150px] w-[150px] sm:h-[200px] sm:w-[200px] md:h-[250px] md:w-[250px] lg:h-[300px] lg:w-[300px]">
+            <Image
+              src={images.avatar}
+              alt="avatar"
+              priority
+              fill
+              className="object-contain"
+            />
+          </div>
+
           <div className="flex flex-col gap-2">
             <Heading
               variant="h1"

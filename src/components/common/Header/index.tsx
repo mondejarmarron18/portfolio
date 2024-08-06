@@ -38,7 +38,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="relative flex bg-customDirtyWhite dark:bg-customGray">
       <Logo />
       {/* Custom Corner Curve */}
       {renderSeparator()}
