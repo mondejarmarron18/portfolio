@@ -41,7 +41,7 @@ const blogs: Blog[] = [
 
     date: "2024-08-01",
     image: images.blogs.blog1.banner,
-    timeToRead: "8 min",
+    timeToRead: "10 min",
     tags: [
       "TypeScript",
       "APIRequests",
@@ -97,7 +97,7 @@ const blogs: Blog[] = [
     ],
     date: "2024-07-05",
     image: images.blogs.blog2.banner,
-    timeToRead: "10 min",
+    timeToRead: "6 min",
     tags: [
       "React",
       "CustomHook",
