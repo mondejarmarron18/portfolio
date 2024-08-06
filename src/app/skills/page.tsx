@@ -3,6 +3,7 @@ import Heading from "@/components/ui/Heading";
 import React from "react";
 import AnimatedSkills from "@/components/common/AnimatedSkills";
 import { Metadata } from "next";
+import images from "@/constants/images";
 
 export const metadata: Metadata = {
   title: "Skills",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     title: "Skills",
     description:
       "Explore a comprehensive list of technical and non-technical skills, including expertise in web development, frontend and backend technologies, and more.",
+    images: [images.openGraph.skills],
   },
 };
 

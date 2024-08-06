@@ -1,10 +1,16 @@
-import projects from "./projects";
-
 const imagesPath = "/assets/images";
 
 const images = {
   avatar: `${imagesPath}/avatar.png`,
   notFound: `${imagesPath}/404.png`,
+  openGraph: {
+    home: `${imagesPath}/openGraph/home.jpg`,
+    projects: `${imagesPath}/openGraph/projects.jpg`,
+    blogs: `${imagesPath}/openGraph/blogs.jpg`,
+    contact: `${imagesPath}/openGraph/contact.jpg`,
+    skills: `${imagesPath}/openGraph/skills.jpg`,
+    experience: `${imagesPath}/openGraph/experience.jpg`,
+  },
   blogs: {
     blog1: {
       banner: `${imagesPath}/blogs/blog-1/banner.jpg`,

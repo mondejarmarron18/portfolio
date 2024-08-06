@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, Suspense } from "react";
+import React, { forwardRef } from "react";
 import Image from "next/image";
 import { Blog } from "@/utils/types/blog.type";
 import Link from "next/link";
@@ -12,12 +12,13 @@ type BlogCardProps = Blog;
 
 const { colors } = customTheme;
 
-const BlogCard: FC<BlogCardProps> = (blog) => {
+const BlogCard = forwardRef<HTMLElement, BlogCardProps>((blog, ref) => {
   const blogLink = `/blogs/${blog.id}`;
   const { theme } = useTheme();
 
   return (
     <figure
+      ref={ref}
       key={blog.id}
       className="] flex w-full flex-col overflow-hidden rounded-xl border border-customDirtyWhite dark:border-customGray sm:max-w-[300px]"
     >
@@ -49,6 +50,8 @@ const BlogCard: FC<BlogCardProps> = (blog) => {
       </figcaption>
     </figure>
   );
-};
+});
+
+BlogCard.displayName = "BlogCard";
 
 export default BlogCard;

@@ -4,6 +4,7 @@ import Paragraph from "@/components/ui/Paragraph";
 import React from "react";
 import ContactForm from "@/components/forms/ContactForm";
 import { Metadata } from "next";
+import images from "@/constants/images";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     title: "Contact",
     description:
       "Reach out through the contact page for inquiries, opportunities, or collaborations",
+    images: [images.openGraph.contact],
   },
 };
 

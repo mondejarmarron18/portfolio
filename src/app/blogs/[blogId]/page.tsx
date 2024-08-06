@@ -27,6 +27,7 @@ export const generateMetadata = async ({
     openGraph: {
       title: blog.title,
       description: blog.description,
+      images: blog.image,
     },
   };
 };

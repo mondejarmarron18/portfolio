@@ -5,6 +5,7 @@ import _ from "lodash";
 import GeneralLayout from "@/components/layouts/GeneralLayout";
 import ExperienceList from "@/components/common/ExperienceList";
 import { Metadata } from "next";
+import images from "@/constants/images";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     title: "Experience",
     description:
       "Discover his expertise in React.js, Node.js, and TypeScript, and how his skills have driven impactful projects.",
+    images: [images.openGraph.experience],
   },
 };
 

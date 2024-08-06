@@ -6,9 +6,23 @@ import blogsData from "@/constants/blogs";
 import _ from "lodash";
 import cn from "@/utils/cn";
 import { Blog } from "@/utils/types/blog.type";
+import { motion, Variants } from "framer-motion";
 
 type BlogCardListProps = HTMLAttributes<HTMLDivElement> & {
   maxCount?: number;
+};
+
+const AnimatedBlogCard = motion(BlogCard);
+
+const variants: Variants = {
+  visible: {
+    opacity: 1,
+    scale: 1,
+  },
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+  },
 };
 
 const BlogCardList: FC<BlogCardListProps> = ({ maxCount = 3, ...props }) => {
@@ -31,7 +45,15 @@ const BlogCardList: FC<BlogCardListProps> = ({ maxCount = 3, ...props }) => {
       )}
     >
       {blogs.map((blog) => (
-        <BlogCard key={blog.id} {...blog} />
+        <AnimatedBlogCard
+          variants={variants}
+          initial="hidden"
+          animate="visible"
+          exit={"hidden"}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          key={blog.id}
+          {...blog}
+        />
       ))}
     </div>
   );

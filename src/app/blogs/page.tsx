@@ -3,6 +3,7 @@ import Heading from "@/components/ui/Heading";
 import React from "react";
 import BlogCardList from "@/components/common/BlogCardList";
 import { Metadata } from "next";
+import images from "@/constants/images";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     title: "Blogs",
     description:
       "Dive into topics such as best practices, cutting-edge technologies, and real-world solutions to common software development challenges.",
+    images: [images.openGraph.blogs],
   },
 };
 

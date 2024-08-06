@@ -1,17 +1,7 @@
+import { Project } from "@/utils/types/project.type";
 import images from "./images";
 
-export type ProjectType = {
-  id: number;
-  title: string;
-  description: string;
-  bgColor: string;
-  image: string;
-  githubLink?: string;
-  webLink?: string;
-  tools: string[];
-};
-
-const projects: ProjectType[] = [
+const projects: Project[] = [
   {
     id: 1,
     title: "AIA - AI Assistant",
@@ -28,7 +18,8 @@ const projects: ProjectType[] = [
     bgColor: "#a5692c",
     image: images.projects.portfolio,
     tools: ["Next.js", "TailwindCSS", "TypeScript"],
-    githubLink: "/",
+    githubLink: "https://github.com/mondejarmarron18/portfolio",
+    webLink: "/",
   },
   {
     id: 3,
