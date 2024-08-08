@@ -2,21 +2,20 @@ import GeneralLayout from "@/components/layouts/GeneralLayout";
 import React from "react";
 import BlogMainContent from "./_components/BlogMainContent";
 import { Metadata, NextPage } from "next";
-import blogs from "@/constants/blogs";
 import { redirect } from "next/navigation";
+import getBlogBySlug from "@/utils/api/blogs/getBlogBySlug";
 
 type BlogPageProps = {
   params: {
-    blogId: string;
+    slug: string;
   };
 };
 
 export const generateMetadata = async ({
   params,
 }: BlogPageProps): Promise<Metadata> => {
-  const { blogId } = params;
-
-  const blog = blogs.find((blog) => blog.id === blogId);
+  const { slug } = params;
+  const blog = getBlogBySlug(slug);
 
   if (!blog) return redirect("/404");
 
@@ -33,7 +32,7 @@ export const generateMetadata = async ({
   };
 };
 
-const BlogPage: NextPage<BlogPageProps> = () => {
+const BlogPage: NextPage<BlogPageProps> = ({ params }) => {
   return (
     <GeneralLayout sideBarHidden>
       <BlogMainContent />

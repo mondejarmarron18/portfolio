@@ -36,6 +36,7 @@ const PageNavigator = ({ className, ...props }: PageNavigatorPropsType) => {
   return (
     <div className={cn("flex w-fit flex-col gap-2", className)} {...props}>
       <IconButton
+        aria-label="Go to previous page"
         icon={{
           name: "ArrowIcon",
           color: theme === "light" ? colors.secondary : colors.primary,
@@ -46,6 +47,7 @@ const PageNavigator = ({ className, ...props }: PageNavigatorPropsType) => {
         })}
       />
       <IconButton
+        aria-label="Go to next page"
         icon={{
           name: "ArrowIcon",
           color: theme === "light" ? colors.secondary : colors.primary,

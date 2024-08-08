@@ -1,9 +1,7 @@
 "use client";
 
-import blogs from "@/constants/blogs";
 import { Blog } from "@/utils/types/blog.type";
-import { notFound, useParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import BlogBreadCrumbs from "../BlogBreadCrumbs";
 import BlogBanner from "../BlogBanner";
 import BlogHeader from "../BlogHeader";
@@ -11,20 +9,22 @@ import { parseISO } from "date-fns";
 import BlogContents from "../BlogContents";
 import BlogTags from "../BlogTags";
 import BlogRelatedBlogs from "../BlogRelatedBlogs";
+import { redirect, useParams } from "next/navigation";
+import getBlogBySlug from "@/utils/api/blogs/getBlogBySlug";
 
-const BlogMainContent = () => {
-  const { blogId } = useParams();
+type BlogMainContentProps = {};
+
+const BlogMainContent: FC<BlogMainContentProps> = () => {
+  const { slug } = useParams();
   const [blog, setBlog] = useState<Blog>();
 
   useEffect(() => {
-    const currentBlog = blogs.find((blog) => blog.id === blogId);
+    const blog = getBlogBySlug(slug as string);
 
-    if (!currentBlog) return notFound();
+    if (!blog) return redirect("/404");
 
-    setBlog(currentBlog);
-  }, [blogId]);
-
-  if (!blogId) return notFound();
+    setBlog(blog);
+  }, [slug]);
 
   return (
     <div className="scrollbar-thin flex flex-col gap-4 overflow-y-auto md:gap-6 lg:gap-8">

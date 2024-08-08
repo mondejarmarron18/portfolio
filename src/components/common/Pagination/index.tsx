@@ -2,18 +2,13 @@
 
 import React, { HTMLAttributes } from "react";
 import cn from "@/utils/cn";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import pages from "@/constants/pages";
 
 type PaginationPropsType = HTMLAttributes<HTMLDivElement>;
 
 const Pagination = ({ className, ...props }: PaginationPropsType) => {
   const path = usePathname();
-  const router = useRouter();
-
-  const goToPage = (page: string) => {
-    router.push(page);
-  };
 
   return (
     <div
@@ -21,14 +16,13 @@ const Pagination = ({ className, ...props }: PaginationPropsType) => {
       {...props}
     >
       {pages.map((page) => (
-        <button
+        <div
           key={page.name}
-          onClick={() => goToPage(page.url)}
           className={cn("h-4 w-4 rounded-full", {
             "bg-customDirtyWhite dark:bg-customGray": path !== page.url,
             "bg-secondary dark:bg-primary": path === page.url,
           })}
-        ></button>
+        ></div>
       ))}
     </div>
   );

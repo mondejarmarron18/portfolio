@@ -11,6 +11,7 @@ const BlogBanner: FC<BlogBannerProps> = ({ alt, image }) => {
   return (
     <Image
       src={image}
+      priority
       alt={alt}
       width={800}
       height={0}

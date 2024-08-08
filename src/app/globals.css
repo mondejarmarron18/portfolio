@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    /* cursor: none !important; */
-  }
-
   body {
     @apply flex justify-center overflow-hidden bg-customDirtyWhite p-2 dark:bg-customGray dark:text-white lg:p-4;
     height: 100vh;

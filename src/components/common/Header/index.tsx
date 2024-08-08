@@ -48,6 +48,7 @@ const Header = () => {
       <div className="flex flex-1 items-center justify-between rounded-t-custom bg-customWhite/60 p-2 pb-1 backdrop-blur-xl dark:bg-customBlack/60">
         {icon ? (
           <IconButton
+            aria-label="Turn on light mode"
             icon={{
               name: icon,
               color: icon === "MoonIcon" ? colors.primary : colors.secondary,
@@ -56,6 +57,7 @@ const Header = () => {
           />
         ) : (
           <IconButton
+            aria-label="Turn on dark mode"
             icon={{
               name: "LoadingIcon",
               color: theme === "light" ? colors.primary : colors.secondary,
@@ -69,6 +71,7 @@ const Header = () => {
           )}
           <IconButton
             onClick={toggleMenu}
+            aria-label="Open menu"
             icon={{
               name: "MenuIcon",
               color: theme === "light" ? colors.secondary : colors.primary,

@@ -1,19 +1,22 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import Image from "next/image";
 import { Blog } from "@/utils/types/blog.type";
 import Link from "next/link";
 import TimeIcon from "@/components/icons/TimeIcon";
 import { useTheme } from "next-themes";
 import customTheme from "@/constants/customTheme";
+import dynamic from "next/dynamic";
+import slugify from "@/utils/slugify";
 
 type BlogCardProps = Blog;
 
 const { colors } = customTheme;
+const Image = dynamic(() => import("next/image"), { ssr: false });
 
 const BlogCard = forwardRef<HTMLElement, BlogCardProps>((blog, ref) => {
-  const blogLink = `/blogs/${blog.id}`;
+  const blogSlug = slugify(blog.title);
+  const blogLink = `/blogs/${blogSlug}_${blog.id}`;
   const { theme } = useTheme();
 
   return (
