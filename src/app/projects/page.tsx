@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const ProjectsPage = () => {
   return (
     <GeneralLayout>
-      <div className="flex h-full flex-col gap-4 md:gap-6">
+      <div className="flex h-full w-full flex-col gap-4 md:gap-6">
         <Heading variant="h1">
           <span className="text-secondary dark:text-primary">PRO</span>jects
         </Heading>

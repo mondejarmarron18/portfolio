@@ -2,12 +2,14 @@
 
 import projects from "@/constants/projects";
 import useScreen from "@/hooks/useScreen";
-import cn from "@/utils/cn";
 import { screens } from "@/utils/theme";
 import { Project } from "@/utils/types/project.type";
 import Image from "next/image";
 import React, { FC, useEffect, useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow } from "swiper/modules";
+import "swiper/css/effect-coverflow";
 
 type ProjectSlidesProps = {
   onChangeProject: (project: Project) => void;
@@ -27,7 +29,6 @@ const variants: Variants = {
 
 const ProjectSlides: FC<ProjectSlidesProps> = ({ onChangeProject }) => {
   const { width } = useScreen();
-  const projectSlides = useRef<HTMLDivElement>(null);
   const [currentProject, setCurrentProject] = useState<Project>(projects[0]);
   const isMediumScreen = width > mediumScreenSize;
 
@@ -35,14 +36,11 @@ const ProjectSlides: FC<ProjectSlidesProps> = ({ onChangeProject }) => {
     onChangeProject(currentProject);
   }, [currentProject]);
 
-  useEffect(() => {
-    projectSlides.current?.addEventListener("swiperslidechange", (e) => {
-      const swiper = e as unknown as any;
-      const realIndex = swiper.detail[0].realIndex as number;
+  const handleSlideChange = (index: number) => {
+    const project = projects[index];
 
-      setCurrentProject(projects[realIndex]);
-    });
-  }, [projects]);
+    setCurrentProject(project);
+  };
 
   return (
     <div
@@ -53,56 +51,49 @@ const ProjectSlides: FC<ProjectSlidesProps> = ({ onChangeProject }) => {
           : "",
       }}
     >
-      <motion.div
-        variants={variants}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-        transition={{ duration: 0.5, ease: "easeInOut", delay: 0.3 }}
-        className="relative flex justify-center overflow-hidden"
-        style={{
-          width: width / 1.5 + "px",
-        }}
-      >
-        <swiper-container
-          ref={projectSlides}
-          slides-per-view={3}
-          centered-slides
-          loop
-          style={{
-            width: "600px",
-          }}
+      <div className="flex w-[1px] justify-center">
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.3 }}
+          className="relative w-[400px]"
         >
-          {projects.map((project) => (
-            <swiper-slide
-              key={project.id}
-              style={{
-                height: "auto",
-                width: "auto",
-              }}
-              suppressHydrationWarning
-            >
-              <div
-                key={project.id}
-                className={cn(
-                  "relative h-[100px] w-full scale-100 overflow-hidden rounded-lg transition-all",
-                  {
-                    "scale-[0.85] opacity-50 blur-[1px] grayscale":
-                      currentProject.id !== project.id,
-                  },
-                )}
-              >
-                <Image
-                  src={project.image}
-                  alt={"Project Slide"}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </swiper-slide>
-          ))}
-        </swiper-container>
-      </motion.div>
+          <Swiper
+            modules={[EffectCoverflow]}
+            slidesPerView={2}
+            centeredSlides
+            loop
+            effect="coverflow"
+            coverflowEffect={{
+              rotate: 45,
+              stretch: 50,
+              depth: 100,
+              modifier: 1.2,
+              slideShadows: false,
+              scale: 0.85,
+            }}
+            onSlideChange={(e) => handleSlideChange(e.realIndex)}
+          >
+            {projects.map((project) => (
+              <SwiperSlide key={project.id}>
+                <div
+                  key={project.id}
+                  className="relative h-[100px] overflow-hidden rounded-lg"
+                >
+                  <Image
+                    src={project.image}
+                    alt={"Project Slide"}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+      </div>
     </div>
   );
 };

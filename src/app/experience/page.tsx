@@ -33,7 +33,9 @@ const ExperiencePage = () => {
           </Heading>
         </div>
 
-        <ExperienceList />
+        <div className="scrollbar-thin w-full overflow-y-auto">
+          <ExperienceList />
+        </div>
       </div>
     </GeneralLayout>
   );

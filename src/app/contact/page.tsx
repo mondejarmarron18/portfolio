@@ -23,7 +23,7 @@ const ContactPage = () => {
   return (
     <GeneralLayout>
       <div className="flex h-full w-full flex-col justify-center">
-        <div className="flex max-w-xl flex-col gap-2 sm:gap-4 md:gap-8">
+        <div className="scrollbar-thin flex max-w-xl flex-col gap-2 overflow-y-auto sm:gap-4 md:gap-8">
           <div>
             <Heading variant="h1">
               Get in{" "}

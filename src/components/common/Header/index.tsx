@@ -8,10 +8,13 @@ import { IconNameType } from "@/constants/icons";
 
 import MenuContext from "@/contexts/menuContext";
 import Logo from "../Logo";
+import Socials from "../Socials";
+import useScreen from "@/hooks/useScreen";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const { toggle: toggleMenu } = useContext(MenuContext);
+  const { orientation } = useScreen();
 
   const { colors } = customTheme;
   const [icon, setIcon] = useState<IconNameType>();
@@ -60,13 +63,18 @@ const Header = () => {
             onClick={toggleTheme}
           />
         )}
-        <IconButton
-          onClick={toggleMenu}
-          icon={{
-            name: "MenuIcon",
-            color: theme === "light" ? colors.secondary : colors.primary,
-          }}
-        />
+        <div className="flex gap-2">
+          {orientation === "landscape" && (
+            <Socials className="flex flex-row-reverse" />
+          )}
+          <IconButton
+            onClick={toggleMenu}
+            icon={{
+              name: "MenuIcon",
+              color: theme === "light" ? colors.secondary : colors.primary,
+            }}
+          />
+        </div>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const Cursor = () => {
         return (
           <div
             key={index}
-            className={`cursor bg-secondary pointer-events-none absolute left-0 top-0 z-50 rounded-full dark:bg-primary`}
+            className={`cursor pointer-events-none absolute left-0 top-0 z-50 rounded-full bg-secondary dark:bg-primary`}
           ></div>
         );
       })}

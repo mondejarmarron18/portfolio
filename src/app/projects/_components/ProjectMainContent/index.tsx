@@ -39,32 +39,34 @@ const ProjectMainContent = () => {
 
   const renderBgImage = () => {
     return (
-      <AnimatePresence>
-        <motion.div
-          key={currentProject.id}
-          initial={{
-            opacity: 0,
-            scale: 1.5,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
-          exit={{
-            opacity: 0,
-            scale: 0.8,
-          }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="relative h-[200px] w-full overflow-hidden rounded-xl sm:h-[300px] md:absolute md:h-full"
-        >
-          <Image
-            src={currentProject.image}
-            alt={currentProject.title}
-            fill
-            className="object-cover"
-          />
-        </motion.div>
-      </AnimatePresence>
+      <div className="h-[200px] w-full overflow-hidden rounded-xl sm:h-[300px] md:absolute md:h-full">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentProject.id}
+            initial={{
+              opacity: 0,
+              scale: 1.5,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.8,
+            }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="relative h-full w-full"
+          >
+            <Image
+              src={currentProject.image}
+              alt={currentProject.title}
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
     );
   };
   return (
@@ -98,7 +100,7 @@ const ProjectMainContent = () => {
             <Heading variant="h2" className="md:text-customWhite">
               {currentProject.title}
             </Heading>
-            <Paragraph className="max-w-3xl md:text-customWhite">
+            <Paragraph className="line-clamp-2 max-w-3xl text-sm md:text-customWhite">
               {currentProject.description}
             </Paragraph>
           </div>

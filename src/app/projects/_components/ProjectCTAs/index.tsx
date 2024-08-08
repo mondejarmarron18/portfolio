@@ -23,7 +23,7 @@ const ProjectCTAs: FC<ProjectCTAsProps> = ({
             name: "GithubIcon",
           }}
         >
-          Source Code
+          Github
         </Button>
       </Link>
     );
@@ -38,7 +38,7 @@ const ProjectCTAs: FC<ProjectCTAsProps> = ({
             name: "PlanetIcon",
           }}
         >
-          Visit Website
+          Website
         </Button>
       </Link>
     );

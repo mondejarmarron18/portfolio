@@ -1,15 +1,18 @@
+"use client";
+
 import experiences from "@/constants/experiences";
 import React from "react";
 import ExperienceTree from "../ExperienceTree";
 import _ from "lodash";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const ExperienceList = () => {
   return (
     <div className="flex items-center">
       <div className="relative w-full border-t-2 border-secondary dark:border-primary">
-        <swiper-container slides-per-view="auto" space-between="50" free-mode>
+        <Swiper slidesPerView="auto" spaceBetween={50} freeMode>
           {_.chunk(experiences, 4).map((exp, i) => (
-            <swiper-slide
+            <SwiperSlide
               key={i}
               style={{
                 height: "auto",
@@ -20,9 +23,9 @@ const ExperienceList = () => {
               suppressHydrationWarning
             >
               <ExperienceTree experiences={exp} />
-            </swiper-slide>
+            </SwiperSlide>
           ))}
-        </swiper-container>
+        </Swiper>
       </div>
     </div>
   );

@@ -124,6 +124,7 @@ const Menu = forwardRef<HTMLMenuElement>(({}, ref) => {
           );
         })}
       </nav>
+      <div className="w-full p-6"></div>
     </menu>
   );
 });

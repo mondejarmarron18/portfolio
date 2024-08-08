@@ -1,7 +1,5 @@
 import Header from "@/components/common/Header";
-import PageNavigator from "@/components/common/PageNavigator";
-import Pagination from "@/components/common/Pagination";
-import Socials from "@/components/common/Socials";
+import SideBar from "@/components/common/SideBar";
 import cn from "@/utils/cn";
 import React from "react";
 
@@ -37,14 +35,7 @@ const GeneralLayout = ({ children, sideBarHidden }: GeneralLayoutPropsType) => {
             {children}
           </main>
         </div>
-
-        {!sideBarHidden && (
-          <div className="flex flex-shrink-0 flex-col items-center justify-between gap-4 p-2">
-            <Socials />
-            <Pagination className="justify-end" />
-            <PageNavigator className="justify-end" />
-          </div>
-        )}
+        {!sideBarHidden && <SideBar />}
       </div>
     </div>
   );
