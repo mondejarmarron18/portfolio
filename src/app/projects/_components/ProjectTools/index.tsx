@@ -1,6 +1,5 @@
 "use client";
 
-import cn from "@/utils/cn";
 import React, { FC, HTMLAttributes } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,21 +11,14 @@ const ProjectTools: FC<ProjectToolsProps> = ({ tools, ...props }) => {
   if (!tools.length) return;
 
   return (
-    <div className="w-[1px]">
-      <Swiper
-        slidesPerView="auto"
-        freeMode
-        spaceBetween={10}
-        style={{
-          width: "fit-content",
-        }}
-      >
+    <div className="relative w-[75vw]">
+      <Swiper slidesPerView="auto" freeMode spaceBetween={10}>
         {tools.map((tool) => (
           <SwiperSlide
             key={tool}
             suppressHydrationWarning
             style={{
-              width: "fit-content",
+              width: "auto",
             }}
           >
             <span className="rounded-full bg-customWhite/70 px-3 py-1 text-sm font-medium dark:bg-customBlack/70">

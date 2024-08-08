@@ -29,6 +29,7 @@ const images = {
     portfolio: `${imagesPath}/projects/portfolio.jpg`,
     prohustlin: `${imagesPath}/projects/prohustlin.jpg`,
     bargainhub: `${imagesPath}/projects/bargainhub.jpg`,
+    telecall: `${imagesPath}/projects/telecall.jpg`,
   },
 };
 

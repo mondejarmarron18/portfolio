@@ -17,7 +17,7 @@ const projects: Project[] = [
     description: "Personal portfolio website, showing my skills and projects.",
     bgColor: "#a5692c",
     image: images.projects.portfolio,
-    tools: ["Next.js", "TailwindCSS", "TypeScript"],
+    tools: ["Next.js", "TailwindCSS", "TypeScript", "Vercel"],
     githubLink: "https://github.com/mondejarmarron18/portfolio",
     webLink: "/",
   },
@@ -28,8 +28,9 @@ const projects: Project[] = [
       "A blog/vlog platform where you can share your thoughts and experiences.",
     bgColor: "#010101",
     image: images.projects.prohustlin,
-    tools: ["Javascript", "Bootsrtap", "HTML5", "CSS3"],
+    tools: ["Javascript", "Bootsrtap", "HTML5", "CSS3", "Github Pages"],
     githubLink: "https://github.com/prohustlin/prohustlin.github.io.git",
+    webLink: "https://mondejarmarron18.github.io/prohustlin/index.html",
   },
   {
     id: 4,
@@ -39,6 +40,16 @@ const projects: Project[] = [
     image: images.projects.bargainhub,
     tools: ["BigCommerce", "Javascript", "HTML5", "CSS3"],
     webLink: "https://bargainhub.co.nz",
+  },
+  {
+    id: 5,
+    title: "Telecall",
+    description: "A BPO company landing page.",
+    bgColor: "#d32c50",
+    image: images.projects.telecall,
+    tools: ["Javascript", "HTML5", "CSS3", "Github Pages"],
+    githubLink: "https://github.com/mondejarmarron18/telecall",
+    webLink: "https://mondejarmarron18.github.io/telecall",
   },
 ];
 

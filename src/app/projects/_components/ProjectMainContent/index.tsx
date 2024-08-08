@@ -100,7 +100,7 @@ const ProjectMainContent = () => {
             <Heading variant="h2" className="md:text-customWhite">
               {currentProject.title}
             </Heading>
-            <Paragraph className="line-clamp-2 max-w-3xl text-sm md:text-customWhite">
+            <Paragraph className="max-w-3xl text-sm md:text-base md:text-customWhite">
               {currentProject.description}
             </Paragraph>
           </div>
