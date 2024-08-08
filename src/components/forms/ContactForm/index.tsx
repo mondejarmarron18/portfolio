@@ -39,17 +39,20 @@ const ContactForm = () => {
       <TextBox
         type="text"
         placeholder="Full Name"
+        aria-label="Full name input"
         error={errors.fullName?.message}
         {...register("fullName")}
       />
 
       <TextBox
         placeholder="Email Address"
+        aria-label="Email input"
         error={errors.email?.message}
         {...register("email")}
       />
       <TextBox
         placeholder="Your Message"
+        aria-label="Message input"
         type="textarea"
         error={errors.message?.message}
         {...register("message")}
@@ -66,6 +69,7 @@ const ContactForm = () => {
           </Paragraph>
         )}
         <Button
+          aria-label="Send message"
           variant="primary"
           icon={{
             name: isPending ? "LoadingIcon" : "SendIcon",
