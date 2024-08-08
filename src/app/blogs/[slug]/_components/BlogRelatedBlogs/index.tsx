@@ -1,3 +1,5 @@
+"use client";
+
 import RelatedBlogs from "@/components/common/RelatedBlogs";
 import Heading from "@/components/ui/Heading";
 import cn from "@/utils/cn";

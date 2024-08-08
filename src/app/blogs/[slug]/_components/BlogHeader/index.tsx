@@ -1,13 +1,10 @@
+"use client";
+
 import CalendarIcon from "@/components/icons/CalendarIcon";
 import Heading from "@/components/ui/Heading";
 import customTheme from "@/constants/customTheme";
 import cn from "@/utils/cn";
-import {
-  differenceInDays,
-  formatDate,
-  formatDistanceToNow,
-  parseISO,
-} from "date-fns";
+import { differenceInDays, formatDate, formatDistanceToNow } from "date-fns";
 import { useTheme } from "next-themes";
 import React, { FC, HTMLAttributes } from "react";
 

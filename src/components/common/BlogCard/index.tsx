@@ -46,7 +46,11 @@ const BlogCard = forwardRef<HTMLElement, BlogCardProps>((blog, ref) => {
             />
             {blog.timeToRead}
           </div>
-          <Link href={blogLink} className="text-secondary dark:text-primary">
+          <Link
+            href={blogLink}
+            aria-label={blog.title}
+            className="text-secondary dark:text-primary"
+          >
             Read more
           </Link>
         </div>

@@ -57,6 +57,7 @@ const BreadCrumbs: FC<BreadCrumbsProps> = (props) => {
           <Link
             key={index}
             href={breadCrumb.link}
+            aria-label={breadCrumb.name}
             className={cn("flex gap-2", {
               "text-secondary dark:text-primary": !breadCrumb.isActive,
             })}

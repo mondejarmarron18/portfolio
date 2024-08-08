@@ -1,6 +1,7 @@
+"use client";
+
 import React, { FC } from "react";
 import Image from "next/image";
-import { Blog } from "@/utils/types/blog.type";
 
 type BlogBannerProps = {
   alt: string;
