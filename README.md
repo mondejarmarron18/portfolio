@@ -1,4 +1,4 @@
-<img src="./assets/images/projects/portfolio.jpg"/>
+<img src="/public/assets/images/projects/portfolio.jpg"/>
 
 # iForgeTech
 
