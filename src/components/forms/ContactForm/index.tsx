@@ -6,6 +6,7 @@ import TextBox from "@/components/ui/TextBox";
 import useContactForm, { ContactFormType } from "@/hooks/forms/useContactForm";
 import api from "@/utils/api";
 import cn from "@/utils/cn";
+import { sendGAEvent } from "@next/third-parties/google";
 import { useMutation } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 
@@ -26,6 +27,11 @@ const ContactForm = () => {
       resetField("email");
       resetField("message");
       setTimeout(() => reset(), 3000);
+      sendGAEvent({
+        action: "buttonClicked",
+        category: "contact",
+        label: "form",
+      });
     }
   }, [isSuccess]);
 

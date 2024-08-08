@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 import RootLayout from "@/components/layouts/RootLayout";
 import { Poppins } from "next/font/google";
 import images from "@/constants/images";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import config from "@/utils/config";
 
 export const metadata: Metadata = {
   title: "iForgeTech",
@@ -28,6 +30,7 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
       <body className={inter.className} suppressHydrationWarning>
         <RootLayout>{children}</RootLayout>
       </body>
+      {!!config.gaId && <GoogleAnalytics gaId={config.gaId} />}
     </html>
   );
 };
