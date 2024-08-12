@@ -5,6 +5,7 @@ import React, { Fragment } from "react";
 import { format } from "date-fns";
 import { ExperienceType } from "@/constants/experiences";
 import { motion, Variants } from "framer-motion";
+import useScreen from "@/hooks/useScreen";
 
 type ExperienceTreeProps = {
   experiences: ExperienceType[];
@@ -15,6 +16,8 @@ const formatDate = (date: Date) => {
 };
 
 const ExperienceTree = ({ experiences }: ExperienceTreeProps) => {
+  const { height } = useScreen();
+
   return (
     <div className="grid grid-cols-2">
       {experiences.map((exp, i) => {
@@ -34,10 +37,12 @@ const ExperienceTree = ({ experiences }: ExperienceTreeProps) => {
             {i % 2 === 1 && <div></div>}
             <div
               className={cn(
-                "box-border border-secondary pt-8 text-sm dark:border-primary sm:text-base md:pt-10 lg:pt-12 lg:text-lg",
+                "box-border border-secondary pt-8 text-sm dark:border-primary sm:text-base md:pt-10 lg:text-lg",
                 {
                   "border-r-2 pr-[15px] text-right": i % 2 === 0,
                   "-ml-[2px] border-l-2 pl-[15px] text-left": i % 2 === 1,
+                  "md:pt-8": height < 940,
+                  "md:pt-4": height <= 800,
                 },
               )}
             >

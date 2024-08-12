@@ -23,14 +23,12 @@ export const metadata: Metadata = {
 const ExperiencePage = () => {
   return (
     <GeneralLayout>
-      <div className="flex h-full flex-col justify-center gap-5 md:gap-10 lg:gap-12">
+      <div className="flex h-full flex-col justify-center gap-2 md:gap-6 lg:gap-8">
         <div>
-          <Paragraph className="h-fit text-[5rem] font-bold leading-none md:text-[6rem] lg:text-[8rem]">
+          <Paragraph className="h-fit text-[4rem] font-bold leading-none md:text-[5rem] lg:text-[6rem]">
             <span className="text-secondary dark:text-primary">X</span>P
           </Paragraph>
-          <Heading variant="h1" className="">
-            Experience
-          </Heading>
+          <Heading variant="h1">Experience</Heading>
         </div>
 
         <div className="scrollbar-thin w-full overflow-y-auto">
