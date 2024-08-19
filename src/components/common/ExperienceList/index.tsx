@@ -5,12 +5,18 @@ import React from "react";
 import ExperienceTree from "../ExperienceTree";
 import _ from "lodash";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode } from "swiper/modules";
 
 const ExperienceList = () => {
   return (
     <div className="flex items-center">
       <div className="relative w-full border-t-2 border-secondary dark:border-primary">
-        <Swiper slidesPerView="auto" spaceBetween={50} freeMode>
+        <Swiper
+          modules={[FreeMode]}
+          slidesPerView="auto"
+          spaceBetween={50}
+          freeMode
+        >
           {_.chunk(experiences, 4).map((exp, i) => (
             <SwiperSlide
               key={i}

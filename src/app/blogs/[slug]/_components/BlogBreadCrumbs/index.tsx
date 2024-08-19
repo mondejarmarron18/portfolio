@@ -1,10 +1,8 @@
 "use client";
 
 import BreadCrumbs from "@/components/common/BreadCrumbs";
-import blogs from "@/constants/blogs";
 import slugify from "@/utils/slugify";
 import { Blog } from "@/utils/types/blog.type";
-import { useParams } from "next/navigation";
 import { FC } from "react";
 
 type BlogBreadCrumbsProps = {
