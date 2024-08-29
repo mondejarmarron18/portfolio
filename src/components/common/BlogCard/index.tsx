@@ -49,6 +49,7 @@ const BlogCard = forwardRef<HTMLElement, BlogCardProps>((blog, ref) => {
           <Link
             href={blogLink}
             aria-label={blog.title}
+            title={blog.title}
             className="text-secondary dark:text-primary"
           >
             Read more
