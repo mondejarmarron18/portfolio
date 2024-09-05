@@ -16,6 +16,16 @@ export const metadata: Metadata = {
     images: [images.openGraph.home],
     siteName: "iForgeTech",
   },
+  twitter: {
+    title: "iForgeTech",
+    description:
+      "Welcome! Discover a range of projects and professional work. Dive into a portfolio that highlights creativity and technical expertise.",
+    images: [images.openGraph.home],
+    site: "@iForgeTech",
+  },
+  icons: {
+    shortcut: "/favicon.ico",
+  },
 };
 const inter = Poppins({
   subsets: ["latin"],

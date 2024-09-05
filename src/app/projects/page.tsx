@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import images from "@/constants/images";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Projects - iForgeTech",
   description:
     "Discover an extensive portfolio of projects, demonstrating proficiency in various web development technologies, frontend and backend solutions, and innovative problem-solving.",
   openGraph: {
@@ -14,7 +14,14 @@ export const metadata: Metadata = {
     description:
       "Discover an extensive portfolio of projects, demonstrating proficiency in various web development technologies, frontend and backend solutions, and innovative problem-solving.",
     images: [images.openGraph.projects],
-    siteName: "iForgeTech | Projects",
+    siteName: "Projects - iForgeTech",
+  },
+  twitter: {
+    title: "Projects - iForgeTech",
+    description:
+      "Discover an extensive portfolio of projects, demonstrating proficiency in various web development technologies, frontend and backend solutions, and innovative problem-solving.",
+    images: [images.openGraph.projects],
+    site: "@iForgeTech",
   },
 };
 

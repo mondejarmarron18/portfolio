@@ -15,7 +15,12 @@ const Socials: FC<SocialsPropsType> = (props) => {
         const ariaLabel = `Open ${social.name} profile`;
 
         return (
-          <Link href={social.link} key={social.name} aria-label={ariaLabel}>
+          <Link
+            href={social.link}
+            key={social.name}
+            aria-label={ariaLabel}
+            target="_blank"
+          >
             <IconButton
               aria-label={ariaLabel}
               icon={{ name: social.icon }}

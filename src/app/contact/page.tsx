@@ -7,7 +7,7 @@ import { Metadata } from "next";
 import images from "@/constants/images";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact - iForgeTech",
   description:
     "Reach out through the contact page for inquiries, opportunities, or collaborations. Find all the details needed to get in touch.",
   openGraph: {
@@ -15,7 +15,14 @@ export const metadata: Metadata = {
     description:
       "Reach out through the contact page for inquiries, opportunities, or collaborations",
     images: [images.openGraph.contact],
-    siteName: "iForgeTech | Contact",
+    siteName: "Contact - iForgeTech",
+  },
+  twitter: {
+    title: "Contact - iForgeTech",
+    description:
+      "Reach out through the contact page for inquiries, opportunities, or collaborations",
+    images: [images.openGraph.contact],
+    site: "@iForgeTech",
   },
 };
 

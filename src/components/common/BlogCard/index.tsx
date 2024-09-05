@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import { Blog } from "@/utils/types/blog.type";
 import Link from "next/link";
 import TimeIcon from "@/components/icons/TimeIcon";
@@ -8,16 +8,23 @@ import { useTheme } from "next-themes";
 import customTheme from "@/constants/customTheme";
 import dynamic from "next/dynamic";
 import slugify from "@/utils/slugify";
+import NextImage from "next/image";
+import { useInView } from "framer-motion";
 
 type BlogCardProps = Blog;
 
 const { colors } = customTheme;
-const Image = dynamic(() => import("next/image"), { ssr: false });
+const LazyImage = dynamic(() => import("next/image"), { ssr: false });
 
 const BlogCard = forwardRef<HTMLElement, BlogCardProps>((blog, ref) => {
   const blogSlug = slugify(blog.title);
   const blogLink = `/blogs/${blogSlug}_${blog.id}`;
   const { theme } = useTheme();
+  const imageRef = useRef<HTMLImageElement>(null);
+  const imageInView = useInView({
+    current: imageRef.current,
+  });
+  const Image = imageInView ? NextImage : LazyImage;
 
   return (
     <figure
@@ -27,6 +34,7 @@ const BlogCard = forwardRef<HTMLElement, BlogCardProps>((blog, ref) => {
     >
       <div className="relative h-[150px] w-full">
         <Image
+          ref={imageRef}
           src={blog.image}
           alt={blog.title}
           fill

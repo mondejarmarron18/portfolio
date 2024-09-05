@@ -20,14 +20,20 @@ export const generateMetadata = async ({
   if (!blog) return redirect("/404");
 
   return {
-    title: blog.title,
+    title: `Blog - ${blog.title} - iForgeTech`,
     description: blog.description,
     keywords: blog.tags,
     openGraph: {
       title: blog.title,
       description: blog.description,
       images: blog.image,
-      siteName: `iForgeTech | Blog - ${blog.title}`,
+      siteName: `Blog - ${blog.title} - iForgeTech`,
+    },
+    twitter: {
+      title: `Blog - ${blog.title} - iForgeTech`,
+      description: blog.description,
+      images: blog.image,
+      site: "@iForgeTech",
     },
   };
 };

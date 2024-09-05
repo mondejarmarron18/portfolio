@@ -8,15 +8,22 @@ import { Metadata } from "next";
 import images from "@/constants/images";
 
 export const metadata: Metadata = {
-  title: "Experience",
+  title: "Experience - iForgeTech",
   description:
     "Extensive experience in web development and technology. Discover his expertise in React.js, Node.js, and TypeScript, and how his skills have driven impactful projects.",
   openGraph: {
-    title: "Experience",
+    title: "Experience - iForgeTech",
     description:
       "Discover his expertise in React.js, Node.js, and TypeScript, and how his skills have driven impactful projects.",
     images: [images.openGraph.experience],
-    siteName: "iForgeTech | Experience",
+    siteName: "Experience - iForgeTech",
+  },
+  twitter: {
+    title: "Experience - iForgeTech",
+    description:
+      "Discover his expertise in React.js, Node.js, and TypeScript, and how his skills have driven impactful projects.",
+    images: [images.openGraph.experience],
+    site: "@iForgeTech",
   },
 };
 
