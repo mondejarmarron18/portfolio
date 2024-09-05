@@ -60,6 +60,7 @@ const BlogCard = forwardRef<HTMLElement, BlogCardProps>((blog, ref) => {
             title={blog.title}
             className="text-secondary dark:text-primary"
           >
+            <label className="sr-only">{blog.title}</label>
             Read more
           </Link>
         </div>
