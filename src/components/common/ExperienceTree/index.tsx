@@ -72,7 +72,10 @@ const ExperienceTree = ({ experiences }: ExperienceTreeProps) => {
                 animate="animate"
                 transition={{ duration: 0.5 }}
               >
-                <span className="opacity-50"> {exp.company}</span>
+                <span className="opacity-50">
+                  {exp.company} - {exp.country.code}
+                </span>{" "}
+                <span title={exp.country.name}>{exp.country.flag}</span>
               </motion.p>
               <motion.p
                 variants={animationVariants}

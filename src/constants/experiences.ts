@@ -1,3 +1,5 @@
+import countries, { Country } from "./countries";
+
 export type ExperienceType = {
   date: {
     from: Date;
@@ -5,9 +7,18 @@ export type ExperienceType = {
   };
   position: string;
   company: string;
+  country: Country;
 };
 
 const experiences: ExperienceType[] = [
+  {
+    date: {
+      from: new Date("2024-09-16"),
+    },
+    position: "Software Engineer I",
+    company: "Career Edge LLC",
+    country: countries.unitedStates,
+  },
   {
     date: {
       from: new Date("2024-04-18"),
@@ -15,6 +26,7 @@ const experiences: ExperienceType[] = [
     },
     position: "Software Engineer",
     company: "Freelance",
+    country: countries.newZealand,
   },
   {
     date: {
@@ -23,6 +35,7 @@ const experiences: ExperienceType[] = [
     },
     position: "Front End Developer",
     company: "Lightweight Solutions",
+    country: countries.philippines,
   },
   {
     date: {
@@ -31,6 +44,7 @@ const experiences: ExperienceType[] = [
     },
     position: "Consultant Software Engineer",
     company: "Airfi Networks Services Limited",
+    country: countries.unitedKingdom,
   },
   {
     date: {
@@ -39,6 +53,7 @@ const experiences: ExperienceType[] = [
     },
     position: "Front End Developer",
     company: "Freelance",
+    country: countries.philippines,
   },
   {
     date: {
@@ -47,6 +62,7 @@ const experiences: ExperienceType[] = [
     },
     position: "Front End Developer",
     company: "Real IT Consulting Corporation",
+    country: countries.philippines,
   },
   {
     date: {
@@ -55,6 +71,7 @@ const experiences: ExperienceType[] = [
     },
     position: "Front End Developer",
     company: "Freelance",
+    country: countries.canada,
   },
   {
     date: {
@@ -63,6 +80,7 @@ const experiences: ExperienceType[] = [
     },
     position: "Full Stack Developer",
     company: "Freelance",
+    country: countries.dubai,
   },
 ] as const;
 
