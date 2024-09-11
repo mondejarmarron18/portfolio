@@ -23,6 +23,10 @@ const images = {
       image1: `${imagesPath}/blogs/blog-2/image-1.jpeg`,
       image2: `${imagesPath}/blogs/blog-2/image-2.jpeg`,
     },
+    blog3: {
+      banner: `${imagesPath}/blogs/blog-3/banner.jpeg`,
+      image1: `${imagesPath}/blogs/blog-3/image-1.jpeg`,
+    },
   },
   projects: {
     aia: `${imagesPath}/projects/aia.jpg`,

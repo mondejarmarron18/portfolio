@@ -3,6 +3,59 @@ import images from "./images";
 
 const blogs: Blog[] = [
   {
+    id: "7d7a8f9f-8b7e-4b5e-8b7e-8b7e-8b7e7d7a8f9f",
+    title:
+      "Why Page Speed, SEO, Accessibility, and Performance Matter for Your Website!",
+    description:
+      "In today's digital world, your website's success isn't just about how it looks—it's about how it performs. 🌐✨",
+    contents: [
+      {
+        type: "text",
+        content:
+          "In today's digital world, your website's success isn't just about how it looks—it's about how it performs. 🌐✨\n\n",
+      },
+      {
+        type: "image",
+        content: images.blogs.blog3.image1,
+      },
+      {
+        type: "text",
+        content:
+          "💨 Page Speed: Did you know that even a 1-second delay in page load time can lead to a 7% loss in conversions? That’s why I focus on optimizing every website for speed. Recently, my website achieved a perfect score on the PageSpeed testing tool! ⚡ Faster pages = happier users + better rankings!\n\n",
+      },
+      {
+        type: "text",
+        content:
+          "🔍 SEO: A website optimized for search engines ensures better visibility and more organic traffic. Implementing best practices in SEO can help your website rank higher, leading to more clicks and more business. 📈\n\n",
+      },
+      {
+        type: "text",
+        content:
+          "♿ Accessibility: Every user, regardless of their abilities, should be able to access and navigate your website. By building with accessibility in mind, you're not just complying with standards—you’re ensuring inclusivity for all users. 🤝\n\n",
+      },
+      {
+        type: "text",
+        content:
+          "🚀 Performance: From smooth navigation to optimized media, performance is key to retaining users. A well-performing site keeps users engaged, boosts satisfaction, and improves conversions.\n\n",
+      },
+      {
+        type: "text",
+        content:
+          "A fast, optimized, accessible website doesn’t just benefit users—it’s a game-changer for your business!",
+      },
+    ],
+    date: "2024-09-12",
+    image: images.blogs.blog3.banner,
+    timeToRead: "3 min read",
+    tags: [
+      "web development",
+      "SEO",
+      "performance",
+      "accessibility",
+      "page speed",
+    ],
+  },
+  {
     id: "99f1cc62-3683-4905-8359-a35ca48ed1fb",
     title:
       "Simplifying API Requests with Axios and Custom Error Handling In Javascript/NodeJS",
