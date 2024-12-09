@@ -14,6 +14,7 @@ const experiences: ExperienceType[] = [
   {
     date: {
       from: new Date("2024-09-16"),
+      to: new Date("2024-11-06"),
     },
     position: "Software Engineer I",
     company: "Career Edge LLC",

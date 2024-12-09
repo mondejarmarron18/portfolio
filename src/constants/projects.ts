@@ -3,7 +3,17 @@ import images from "./images";
 
 const projects: Project[] = [
   {
-    id: 1,
+    id: 6,
+    title: "X8T",
+    description: "A utility for safely executing functions.",
+    bgColor: "#8B0000",
+    image: images.projects.x8t,
+    tools: ["NPM", "Javascript", "Typescript"],
+    githubLink: "https://github.com/mondejarmarron18",
+    webLink: "https://www.npmjs.com/package/x8t",
+  },
+  {
+    id: 5,
     title: "AIA - AI Assistant",
     description: "Web application that can help you with your AI needs.",
     bgColor: "#111729",
@@ -12,7 +22,7 @@ const projects: Project[] = [
     githubLink: "https://github.com/mondejarmarron18/aia",
   },
   {
-    id: 2,
+    id: 4,
     title: "Portfolio",
     description: "Personal portfolio website, showing my skills and projects.",
     bgColor: "#a5692c",
@@ -33,7 +43,7 @@ const projects: Project[] = [
     webLink: "https://mondejarmarron18.github.io/prohustlin/index.html",
   },
   {
-    id: 4,
+    id: 2,
     title: "Barginhub",
     description: "A New Zealand based e-commerce platform.",
     bgColor: "#cc9500",
@@ -42,7 +52,7 @@ const projects: Project[] = [
     webLink: "https://bargainhub.co.nz",
   },
   {
-    id: 5,
+    id: 1,
     title: "Telecall",
     description: "A BPO company landing page.",
     bgColor: "#d32c50",

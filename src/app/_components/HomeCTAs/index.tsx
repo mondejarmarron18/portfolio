@@ -19,8 +19,8 @@ const HomeCTAs: FC<HomeCTAsProps> = ({ ...props }) => {
 
   const handleDownloadCV = () => {
     const a = document.createElement("a");
-    a.href = "/assets/documents/cv.pdf";
-    a.download = "Marvin Ronquillo - CV.pdf";
+    a.href = "/assets/documents/resume.pdf";
+    a.download = "Marvin Ronquillo - Resume.pdf";
     a.click();
   };
 
@@ -31,7 +31,7 @@ const HomeCTAs: FC<HomeCTAsProps> = ({ ...props }) => {
         icon={{ name: "FingerHeartIcon" }}
         variant="primary"
       >
-        View Projects
+        Explore
       </Button>
       <Button
         onClick={handleDownloadCV}
@@ -40,7 +40,7 @@ const HomeCTAs: FC<HomeCTAsProps> = ({ ...props }) => {
         }}
         variant="ghost"
       >
-        Download CV
+        Resume
       </Button>
     </div>
   );

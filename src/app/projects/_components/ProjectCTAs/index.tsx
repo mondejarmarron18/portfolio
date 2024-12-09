@@ -38,7 +38,7 @@ const ProjectCTAs: FC<ProjectCTAsProps> = ({
             name: "PlanetIcon",
           }}
         >
-          Website
+          Explore
         </Button>
       </Link>
     );
