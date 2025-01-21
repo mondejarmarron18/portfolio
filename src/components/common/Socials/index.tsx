@@ -3,6 +3,7 @@
 import IconButton from "@/components/ui/IconButton";
 import socials from "@/constants/socials";
 import cn from "@/utils/cn";
+import { sendGAEvent } from "@next/third-parties/google";
 import Link from "next/link";
 import React, { FC, HTMLAttributes } from "react";
 
@@ -20,12 +21,24 @@ const Socials: FC<SocialsPropsType> = (props) => {
             key={social.name}
             aria-label={ariaLabel}
             target="_blank"
+            rel="noopener noreferrer"
+            passHref
           >
-            <IconButton
-              aria-label={ariaLabel}
-              icon={{ name: social.icon }}
-              className="opacity-60 transition-colors hover:opacity-100"
-            />
+            <a
+              onClick={() =>
+                sendGAEvent("event", "click", {
+                  category: "socials",
+                  label: social.name,
+                  value: social.link,
+                })
+              }
+            >
+              <IconButton
+                aria-label={ariaLabel}
+                icon={{ name: social.icon }}
+                className="opacity-60 transition-colors hover:opacity-100"
+              />
+            </a>
           </Link>
         );
       })}

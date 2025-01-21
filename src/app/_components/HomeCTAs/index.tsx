@@ -19,10 +19,7 @@ const HomeCTAs: FC<HomeCTAsProps> = ({ ...props }) => {
   };
 
   const handleDownloadCV = () => {
-    sendGAEvent({
-      event: "buttonClicked",
-      value: "Download CV",
-    });
+    sendGAEvent("event", "click", "download_cv");
 
     const a = document.createElement("a");
     a.href = "/assets/documents/cv.pdf";
