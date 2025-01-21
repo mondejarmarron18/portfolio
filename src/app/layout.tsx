@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import RootLayout from "@/components/layouts/RootLayout";
 import { Poppins } from "next/font/google";
 import images from "@/constants/images";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import config from "@/utils/config";
 
 export const metadata: Metadata = {
@@ -41,7 +41,7 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <RootLayout>{children}</RootLayout>
-        <GoogleAnalytics gaId={config.gaId as string} />
+        <GoogleTagManager gtmId={config.gtmId as string} />
       </body>
     </html>
   );

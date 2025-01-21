@@ -3,7 +3,6 @@
 import Button from "@/components/ui/Button";
 import { PageUrlType } from "@/constants/pages";
 import cn from "@/utils/cn";
-import { sendGAEvent } from "@next/third-parties/google";
 import { useRouter } from "next/navigation";
 import React, { FC, HTMLAttributes } from "react";
 
@@ -19,12 +18,6 @@ const HomeCTAs: FC<HomeCTAsProps> = ({ ...props }) => {
   };
 
   const handleDownloadCV = () => {
-    sendGAEvent("event", "click", {
-      category: "home",
-      label: "download-cv",
-      value: "/assets/documents/cv.pdf",
-    });
-
     const a = document.createElement("a");
     a.href = "/assets/documents/cv.pdf";
     a.download = "Marvin_Ronquillo_Software_Engineer_CV.pdf";

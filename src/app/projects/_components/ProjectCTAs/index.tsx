@@ -3,7 +3,6 @@
 import Button from "@/components/ui/Button";
 import cn from "@/utils/cn";
 import { Project } from "@/utils/types/project.type";
-import { sendGAEvent } from "@next/third-parties/google";
 import Link from "next/link";
 import React, { FC, HTMLAttributes } from "react";
 
@@ -23,13 +22,6 @@ const ProjectCTAs: FC<ProjectCTAsProps> = ({
           icon={{
             name: "GithubIcon",
           }}
-          onClick={() =>
-            sendGAEvent("event", "click", {
-              category: "projects",
-              label: "github",
-              value: link,
-            })
-          }
         >
           Github
         </Button>
@@ -45,13 +37,6 @@ const ProjectCTAs: FC<ProjectCTAsProps> = ({
           icon={{
             name: "PlanetIcon",
           }}
-          onClick={() =>
-            sendGAEvent("event", "click", {
-              category: "projects",
-              label: "website",
-              value: link,
-            })
-          }
         >
           Explore
         </Button>
