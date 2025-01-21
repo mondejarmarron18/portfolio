@@ -12,16 +12,14 @@ const HomeMainContent = () => {
   return (
     <div className="scrollbar-thin flex h-full items-center overflow-y-auto">
       <div className="flex h-fit w-fit max-w-3xl flex-col gap-4 md:gap-8">
-        <div className="relative h-[150px] w-[150px] sm:h-[200px] sm:w-[200px] md:h-[250px] md:w-[250px] lg:h-[300px] lg:w-[300px]">
-          <Image
-            src={images.avatar}
-            alt="avatar"
-            priority
-            fill
-            className="object-contain"
-          />
-        </div>
-
+        <Image
+          src={images.avatar}
+          alt="avatar"
+          priority
+          width="150"
+          height="150"
+          className="h-[150px] w-[150px] object-contain sm:h-[200px] sm:w-[200px] md:h-[250px] md:w-[250px] lg:h-[300px] lg:w-[300px]"
+        />
         <div className="flex flex-col gap-2">
           <Heading
             variant="h1"
