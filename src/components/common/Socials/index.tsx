@@ -24,7 +24,7 @@ const Socials: FC<SocialsPropsType> = (props) => {
             rel="noopener noreferrer"
             passHref
           >
-            <a
+            <IconButton
               onClick={() =>
                 sendGAEvent("event", "click", {
                   category: "socials",
@@ -32,13 +32,10 @@ const Socials: FC<SocialsPropsType> = (props) => {
                   value: social.link,
                 })
               }
-            >
-              <IconButton
-                aria-label={ariaLabel}
-                icon={{ name: social.icon }}
-                className="opacity-60 transition-colors hover:opacity-100"
-              />
-            </a>
+              aria-label={ariaLabel}
+              icon={{ name: social.icon }}
+              className="opacity-60 transition-colors hover:opacity-100"
+            />
           </Link>
         );
       })}
