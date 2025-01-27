@@ -39,18 +39,10 @@ const inter = Poppins({
 const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <GoogleTagManager gtmId={config.gtmId as string} />
       <body className={inter.className} suppressHydrationWarning>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${config.gtmId}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
         <RootLayout>{children}</RootLayout>
       </body>
+      <GoogleTagManager gtmId={config.gtmId as string} />
     </html>
   );
 };
