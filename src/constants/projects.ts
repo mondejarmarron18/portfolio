@@ -7,7 +7,7 @@ const projects: Project[] = [
     title: "ChangePulse",
     description:
       "Track and manage updates with automated notifications and approvals.",
-    bgColor: "#c5a500",
+    bgColor: "#997f00",
     image: images.projects.changePulse,
     tools: [
       "React.js",
