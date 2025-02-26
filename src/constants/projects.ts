@@ -3,13 +3,33 @@ import images from "./images";
 
 const projects: Project[] = [
   {
+    id: 7,
+    title: "ChangePulse",
+    description:
+      "Track and manage updates with automated notifications and approvals.",
+    bgColor: "#c5a500",
+    image: images.projects.changePulse,
+    tools: [
+      "React.js",
+      "Express.js",
+      "Typescript",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "Tailwind",
+      "Shadcn UI",
+    ],
+    githubLink:
+      "https://github.com/mondejarmarron18/student-information-update-tracking",
+  },
+  {
     id: 6,
     title: "X8T",
     description: "A utility for safely executing functions.",
     bgColor: "#8B0000",
     image: images.projects.x8t,
     tools: ["NPM", "Javascript", "Typescript"],
-    githubLink: "https://github.com/mondejarmarron18",
+    githubLink: "https://github.com/mondejarmarron18/x8t",
     webLink: "https://www.npmjs.com/package/x8t",
   },
   {
@@ -39,7 +59,7 @@ const projects: Project[] = [
     bgColor: "#010101",
     image: images.projects.prohustlin,
     tools: ["Javascript", "Bootsrtap", "HTML5", "CSS3", "Github Pages"],
-    githubLink: "https://github.com/prohustlin/prohustlin.github.io.git",
+    githubLink: "https://github.com/mondejarmarron18/prohustlin",
     webLink: "https://mondejarmarron18.github.io/prohustlin/index.html",
   },
   {

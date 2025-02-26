@@ -29,6 +29,7 @@ const images = {
     },
   },
   projects: {
+    changePulse: `${imagesPath}/projects/change-pulse.jpg`,
     x8t: `${imagesPath}/projects/x8t.jpg`,
     aia: `${imagesPath}/projects/aia.jpg`,
     portfolio: `${imagesPath}/projects/portfolio.jpg`,
