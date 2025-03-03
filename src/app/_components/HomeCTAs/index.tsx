@@ -19,7 +19,7 @@ const HomeCTAs: FC<HomeCTAsProps> = ({ ...props }) => {
 
   const handleDownloadCV = () => {
     const a = document.createElement("a");
-    a.href = "/assets/documents/cv.pdf";
+    a.href = "/assets/documents/Marvin_Ronquillo_Software_Engineer_CV.pdf";
     a.download = "Marvin_Ronquillo_Software_Engineer_CV.pdf";
     a.click();
   };
