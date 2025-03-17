@@ -4,7 +4,6 @@ import React, { HTMLAttributes } from "react";
 import cn from "@/utils/cn";
 import { usePathname } from "next/navigation";
 import pages from "@/constants/pages";
-import Link from "next/link";
 
 type PaginationPropsType = HTMLAttributes<HTMLDivElement>;
 
@@ -17,7 +16,7 @@ const Pagination = ({ className, ...props }: PaginationPropsType) => {
       {...props}
     >
       {pages.map((page) => (
-        <Link
+        <a
           href={page.url}
           key={page.name}
           className={cn("h-4 w-4 rounded-full", {
@@ -26,7 +25,7 @@ const Pagination = ({ className, ...props }: PaginationPropsType) => {
           })}
         >
           <span className="sr-only">{page.name}</span>
-        </Link>
+        </a>
       ))}
     </div>
   );
