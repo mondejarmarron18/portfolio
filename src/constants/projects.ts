@@ -3,6 +3,15 @@ import images from "./images";
 
 const projects: Project[] = [
   {
+    id: 8,
+    title: "Vero",
+    description:
+      "Smart, AI-driven interviews that bring real insights to light",
+    bgColor: "#9D650D",
+    image: images.projects.vero,
+    tools: ["React Native", "Expo", "Typescript", "Tailwind", "Nativewind"],
+  },
+  {
     id: 7,
     title: "ChangePulse",
     description:
