@@ -3,7 +3,7 @@ import countries, { Country } from "./countries";
 export type ExperienceType = {
   date: {
     from: Date;
-    to?: Date; //The value will currently be "present" or "active" if not defined
+    to: Date;
   };
   position: string;
   company: string;
@@ -41,7 +41,7 @@ const experiences: ExperienceType[] = [
   {
     date: {
       from: new Date("2023-03-01"),
-      to: new Date("2023-04-31"),
+      to: new Date("2023-04-30"),
     },
     position: "Consultant Software Engineer",
     company: "Airfi Networks Services Limited",
@@ -59,7 +59,7 @@ const experiences: ExperienceType[] = [
   {
     date: {
       from: new Date("2021-12-01"),
-      to: new Date("2022-06-31"),
+      to: new Date("2022-06-30"),
     },
     position: "Front End Developer",
     company: "Real IT Consulting Corporation",
@@ -77,7 +77,7 @@ const experiences: ExperienceType[] = [
   {
     date: {
       from: new Date("2020-08-01"),
-      to: new Date("2021-11-31"),
+      to: new Date("2021-11-30"),
     },
     position: "Full Stack Developer",
     company: "Freelance",

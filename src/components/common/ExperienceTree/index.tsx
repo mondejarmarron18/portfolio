@@ -2,7 +2,7 @@
 
 import cn from "@/utils/cn";
 import React, { Fragment } from "react";
-import { format } from "date-fns";
+import { format, isToday } from "date-fns";
 import { ExperienceType } from "@/constants/experiences";
 import { motion, Variants } from "framer-motion";
 import useScreen from "@/hooks/useScreen";
@@ -34,6 +34,7 @@ const ExperienceTree = ({ experiences }: ExperienceTreeProps) => {
 
         return (
           <Fragment key={i}>
+            {/* Empty div is for UI adjustment purposes */}
             {i % 2 === 1 && <div></div>}
             <div
               className={cn(
@@ -54,7 +55,7 @@ const ExperienceTree = ({ experiences }: ExperienceTreeProps) => {
                   transition={{ duration: 0.5 }}
                 >
                   {formatDate(exp.date.from)} -{" "}
-                  {exp.date.to ? formatDate(exp.date.to) : "Present"}
+                  {isToday(exp.date.to) ? "Present" : formatDate(exp.date.to)}
                 </motion.p>
                 <span
                   className={cn(
