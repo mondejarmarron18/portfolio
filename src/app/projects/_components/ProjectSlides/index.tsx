@@ -5,14 +5,22 @@ import useScreen from "@/hooks/useScreen";
 import { screens } from "@/utils/theme";
 import { Project } from "@/utils/types/project.type";
 import Image from "next/image";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
 import "swiper/css/effect-coverflow";
+import { Swiper as SwiperType } from "swiper/types";
 
 type ProjectSlidesProps = {
   onChangeProject: (project: Project) => void;
+};
+
+type SlideData = {
+  isActive: boolean;
+  isPrev: boolean;
+  isNext: boolean;
+  isVisible: boolean;
 };
 
 const mediumScreenSize = +screens.md.split("px")[0];
@@ -30,17 +38,31 @@ const variants: Variants = {
 const ProjectSlides: FC<ProjectSlidesProps> = ({ onChangeProject }) => {
   const { width } = useScreen();
   const [currentProject, setCurrentProject] = useState<Project>(projects[0]);
+  const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const isMediumScreen = width > mediumScreenSize;
 
   useEffect(() => {
     onChangeProject(currentProject);
-  }, [currentProject]);
+  }, [currentProject, onChangeProject]);
 
-  const handleSlideChange = (index: number) => {
-    const project = projects[index];
+  const handleSlideChange = useCallback(({ realIndex }: SwiperType) => {
+    const project = projects[realIndex];
 
     setCurrentProject(project);
-  };
+  }, []);
+
+  const handleNavigate = useCallback(
+    ({ isActive, isPrev }: SlideData) => {
+      if (isActive) return;
+
+      if (isPrev) {
+        return swiper?.slidePrev();
+      }
+
+      swiper?.slideNext();
+    },
+    [swiper],
+  );
 
   return (
     <div
@@ -74,21 +96,25 @@ const ProjectSlides: FC<ProjectSlidesProps> = ({ onChangeProject }) => {
               slideShadows: false,
               scale: 0.85,
             }}
-            onSlideChange={(e) => handleSlideChange(e.realIndex)}
+            onSwiper={setSwiper}
+            onSlideChange={handleSlideChange}
           >
             {projects.map((project) => (
               <SwiperSlide key={project.id}>
-                <div
-                  key={project.id}
-                  className="relative h-[100px] overflow-hidden rounded-lg"
-                >
-                  <Image
-                    src={project.image}
-                    alt={"Project Slide"}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                {(props) => (
+                  <div
+                    key={project.id}
+                    className="relative h-[100px] cursor-pointer overflow-hidden rounded-lg"
+                    onClick={() => handleNavigate(props)}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={"Project Slide"}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
