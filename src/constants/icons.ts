@@ -12,6 +12,7 @@ import LoadingIcon from "@/components/icons/LoadingIcon";
 import MenuIcon from "@/components/icons/MenuIcon";
 import MoonIcon from "@/components/icons/MoonIcon";
 import PlanetIcon from "@/components/icons/PlanetIcon";
+import ScanEye from "@/components/icons/ScanEye";
 import SendIcon from "@/components/icons/SendIcon";
 import StarIcon from "@/components/icons/StarIcon";
 import SunIcon from "@/components/icons/SunIcon";
@@ -36,6 +37,7 @@ const icons = {
   FacebookIcon,
   TimeIcon,
   CalendarIcon,
+  ScanEye,
   // Add more icons here
 } as const;
 
