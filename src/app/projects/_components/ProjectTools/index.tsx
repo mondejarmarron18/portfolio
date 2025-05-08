@@ -19,8 +19,8 @@ const ProjectTools: FC<ProjectToolsProps> = ({ tools, ...props }) => {
             suppressHydrationWarning
             style={{
               width: "auto",
-              height: "28px",
-              paddingTop: "2px",
+              height: "30px",
+              paddingTop: "3px",
             }}
           >
             <span className="rounded-full bg-customWhite/70 px-3 py-1 text-sm font-medium dark:bg-customBlack/70">

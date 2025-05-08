@@ -38,7 +38,7 @@ const HomeMainContent = () => {
             </span>
           </Heading>
           <Paragraph className="text-sm sm:text-base">
-            A passionate and dedicated software engineer for more than{" "}
+            A driven and dedicated software engineer for more than{" "}
             <span className="bg-gradient-to-tr from-primary to-secondary bg-clip-text font-semibold text-transparent">
               4 years,
             </span>{" "}

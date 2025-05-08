@@ -10,6 +10,7 @@ const projects: Project[] = [
     bgColor: "#9D650D",
     image: images.projects.vero,
     tools: ["React Native", "Expo", "Typescript", "Tailwind", "Nativewind"],
+    githubLink: "https://github.com/mondejarmarron18/vero-mobile",
   },
   {
     id: 7,

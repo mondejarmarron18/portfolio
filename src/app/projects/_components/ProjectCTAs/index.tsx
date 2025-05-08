@@ -16,7 +16,7 @@ const ProjectCTAs: FC<ProjectCTAsProps> = ({
 }) => {
   const renderGithubButton = (link: string) => {
     return (
-      <Link href={link}>
+      <Link href={link} target="_blank">
         <Button
           variant="primary"
           icon={{
@@ -31,7 +31,7 @@ const ProjectCTAs: FC<ProjectCTAsProps> = ({
 
   const renderWebsiteButton = (link: string) => {
     return (
-      <Link href={link}>
+      <Link href={link} target="_blank">
         <Button
           variant="ghost"
           icon={{
