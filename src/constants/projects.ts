@@ -3,6 +3,15 @@ import images from "./images";
 
 const projects: Project[] = [
   {
+    id: 9,
+    title: "YT Transcribe",
+    description: "A simple tool to transcribe youtube videos.",
+    bgColor: "#32135F",
+    image: images.projects.youtubeTranscribe,
+    tools: ["OpenAI API", "Next.js", "Typescript", "Tailwind", "Shadcn UI"],
+    githubLink: "https://github.com/mondejarmarron18/youtube-transcribe",
+  },
+  {
     id: 8,
     title: "Vero",
     description:

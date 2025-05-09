@@ -37,6 +37,7 @@ const images = {
     prohustlin: `${imagesPath}/projects/prohustlin.jpg`,
     bargainhub: `${imagesPath}/projects/bargainhub.jpg`,
     telecall: `${imagesPath}/projects/telecall.jpg`,
+    youtubeTranscribe: `${imagesPath}/projects/youtube-transcribe.jpg`,
   },
 };
 
