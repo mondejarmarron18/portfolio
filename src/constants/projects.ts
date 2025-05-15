@@ -10,7 +10,7 @@ const projects: Project[] = [
     image: images.projects.youtubeTranscribe,
     tools: ["OpenAI API", "Next.js", "Typescript", "Tailwind", "Shadcn UI"],
     githubLink: "https://github.com/mondejarmarron18/youtube-transcribe",
-    // webLink: "https://youtube-transcribe.iforgetech.com",
+    webLink: "https://youtube-transcribe-xxmd.onrender.com",
   },
   {
     id: 8,
